@@ -94,6 +94,38 @@ extension ManageGenresViewController : GenresViewModelDelegate {
 
 extension ManageGenresViewController {
     @objc func addGenreButtonTapped() {
+        let alert = UIAlertController(title: "New Genre", message: "Insert the details of the new genre", preferredStyle: .alert);
         
+        var genreTextField : UITextField?;
+        var subGenreTextField : UITextField?;
+        var descriptionTextField : UITextField?;
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Genre"
+            genreTextField = textField;
+        }
+        alert.addTextField { textField in
+            textField.placeholder = "Sub-genre"
+            subGenreTextField = textField
+        }
+        alert.addTextField { textField in
+            textField.placeholder = "Description"
+            descriptionTextField = textField
+        }
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+            
+            if let genre = genreTextField?.text, let subGenre = subGenreTextField?.text, let genreDescription = descriptionTextField?.text {
+                let genre = GenreInput(genre: genre, subGenre: subGenre, description: genreDescription);
+                self.genresViewModel.createGenre(genre);
+            }
+            
+        }
+        alert.addAction(okAction);
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel);
+        alert.addAction(cancelAction);
+        
+        self.present(alert, animated: true)
     }
 }
