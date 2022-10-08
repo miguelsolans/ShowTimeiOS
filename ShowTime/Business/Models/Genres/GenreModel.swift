@@ -13,7 +13,8 @@ class GenreModel: BaseModel {
         super.init();
         
         self.endpoints = [
-            "listGenres": "http://localhost:3031/genre"
+            "listGenres": "http://localhost:3031/genre",
+            "addGenre": "http://localhost:3031/genre"
         ];
     }
     
@@ -31,5 +32,19 @@ class GenreModel: BaseModel {
         }
     }
     
-    
+    func createGenre(_ genre: GenreInput, completion: @escaping(_ output: GenreOutput) -> Void,
+                     failure: @escaping(_ error: Error) -> Void) {
+        
+        let params = genre.dictionary;
+        
+        self.networkManager.request(toURL: self.endpoints[ "addGenre" ]!, httpMethod: .post, parameters: params) { (result: Result<GenreOutput, Error>) in
+            switch result {
+            case .success(let output):
+                completion(output)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+        
+    }
 }

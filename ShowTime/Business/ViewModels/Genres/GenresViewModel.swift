@@ -23,6 +23,19 @@ class GenresViewModel {
             // self.genresError = error;
             
         }
+    }
+    
+    func createGenre(_ genre: GenreInput) {
+        self.model.createGenre(genre) { output in
+            
+            print("POST /genre 201");
+            self.getGenres()
+            
+        } failure: { error in
+            
+            print("Error: \(error.localizedDescription)");
+            
+        }
 
     }
     
