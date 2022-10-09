@@ -64,6 +64,8 @@
 		8BBFA1B228F2185600F18E51 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = SOURCE_ROOT; };
 		8BBFA1B428F2309900F18E51 /* GenreInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreInput.swift; sourceTree = "<group>"; };
 		8BBFA1B628F233CD00F18E51 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		8BBFA1BC28F237FE00F18E51 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		8BBFA1BD28F2380900F18E51 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		8BC7E305287CE5B2008CE4A8 /* ShowTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				8B207C0E287CE6CD00689077 /* NetworkManager.swift */,
-				8BBFA1B628F233CD00F18E51 /* JSON.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -228,6 +229,32 @@
 			path = MenuManager;
 			sourceTree = "<group>";
 		};
+		8BBFA1B828F237AE00F18E51 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BBFA1B628F233CD00F18E51 /* JSON.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8BBFA1B928F237BB00F18E51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */,
+				8BA2D4E728CD0C00007156EB /* AppColors.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8BBFA1BA28F237DF00F18E51 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				8BBFA1BC28F237FE00F18E51 /* Production.xcconfig */,
+				8BBFA1BD28F2380900F18E51 /* Development.xcconfig */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		8BC7E2FC287CE5B2008CE4A8 = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +274,9 @@
 		8BC7E307287CE5B2008CE4A8 /* ShowTime */ = {
 			isa = PBXGroup;
 			children = (
+				8BBFA1BA28F237DF00F18E51 /* Configs */,
+				8BBFA1B928F237BB00F18E51 /* Resources */,
+				8BBFA1B828F237AE00F18E51 /* Extensions */,
 				8BBFA1AF28F2118A00F18E51 /* MenuManager */,
 				8B207C0B287CE62400689077 /* Business */,
 				8B207C09287CE5F000689077 /* ViewControllers */,
@@ -256,10 +286,8 @@
 				8B207C0D287CE67100689077 /* Utils */,
 				8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */,
 				8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */,
-				8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */,
 				8BC7E316287CE5B5008CE4A8 /* Info.plist */,
 				8BAD0B5028A86EFD00F7B8BA /* TabBarViewController.swift */,
-				8BA2D4E728CD0C00007156EB /* AppColors.xcassets */,
 				8BBFA1B228F2185600F18E51 /* readme.md */,
 			);
 			path = ShowTime;

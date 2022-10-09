@@ -1,0 +1,14 @@
+//
+//  Development.xcconfig
+//  ShowTime
+//
+//  Created by Miguel Solans on 08/10/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+APP_NAME = ShowTime DEV
+APP_IDENTIFIER =
+APP_VERSION =
+APP_BUILD_VERSION =
+APP_API_BASE_URL = localhost:3031
