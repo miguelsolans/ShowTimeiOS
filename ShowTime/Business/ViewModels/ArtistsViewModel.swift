@@ -10,6 +10,8 @@ import Foundation
 protocol ArtistsViewModelDelegate {
     func artistsOutputDidChange(_ viewModel: ArtistsViewModel);
     func artistsErrorDidChange(_ viewModel: ArtistsViewModel);
+    func artistOutputDidChange(_ viewModel: ArtistsViewModel);
+    func artistErrorDidChange(_ viewModel: ArtistsViewModel);
 }
 
 class ArtistsViewModel {
@@ -36,14 +38,33 @@ class ArtistsViewModel {
         });
     }
     
+    func createArtist(_ artist: ArtistInput) {
+        self.model.createArtist(artist) { output in
+            self.artistOutput = output;
+        } failure: { error in
+            self.artistError = error;
+        }
+    }
     
+    
+    var artistOutput: ArtistOutput? {
+        didSet {
+            self.delegate?.artistOutputDidChange(self)
+        }
+    }
+    
+    var artistError: Error? {
+        didSet {
+            self.delegate?.artistErrorDidChange(self);
+        }
+    }
     
     var artistsOutput: [ArtistOutput]? {
         didSet {
             self.delegate?.artistsOutputDidChange(self)
         }
     }
-    var genresError: NSError? {
+    var artistsError: Error? {
         didSet {
             self.delegate?.artistsErrorDidChange(self);
         }

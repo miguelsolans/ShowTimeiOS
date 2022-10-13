@@ -23,7 +23,7 @@ class TabBarViewController: UITabBarController {
     
     func setupViewControllers() {
         viewControllers = [
-            createNavController(for: ViewController(), title: "Bands", image: UIImage(systemName: "house")!),
+            createNavController(for: ManageArtistsViewController(), title: "Bands", image: UIImage(systemName: "house")!),
             createNavController(for: ConcertHistoryViewController(), title: "Concerts", image: UIImage(systemName: "guitars")!),
             createNavController(for: SettingsViewController(), title: "Settings", image: UIImage(systemName: "gear")!)
             // createNavController(for: GenresViewController(), title: "Settings", image: UIImage(systemName: "gear")!)
