@@ -14,7 +14,8 @@ class ArtistModel: BaseModel {
         
         self.endpoints = [
             "listArtists": "http://localhost:3031/artist",
-            "listArtistsByGenre": "http://localhost:3031/artist"
+            "listArtistsByGenre": "http://localhost:3031/artist",
+            "createArtist": "http://localhost:3031/artist"
         ];
     }
     
@@ -51,6 +52,21 @@ class ArtistModel: BaseModel {
                     failure(error);
             }
         }
+    }
+    
+    func createArtist(_ artist: ArtistInput, completion: @escaping(_ output: ArtistOutput) -> Void,
+                      failure: @escaping(_ error: Error) -> Void) {
+        
+        self.networkManager.request(toURL: self.endpoints[ "createArtist" ]!, httpMethod: .post, parameters: artist.dictionary) { (result: Result<ArtistOutput, Error>) in
+            
+            switch result {
+            case .success(let output):
+                completion(output)
+            case .failure(let error):
+                failure(error)
+            }
+        }
+        
     }
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: BaseViewController {
+class ManageArtistsViewController: BaseViewController {
     
 
     let genresViewModel = GenresViewModel();
@@ -27,11 +27,16 @@ class ViewController: BaseViewController {
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
+        self.title = "Manage Artists"
+        
     }
 
     
     override func style() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false;
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addArtistButtonTapped))
+        navigationItem.setRightBarButton(addButton, animated: true);
     }
     
     override func layout() {
@@ -55,7 +60,7 @@ class ViewController: BaseViewController {
 }
 
 
-extension ViewController : GenresViewModelDelegate {
+extension ManageArtistsViewController : GenresViewModelDelegate {
     func genresOutputDidChange(_ viewModel: GenresViewModel) {
         print("ViewModel - Genres Output didChange");
         
@@ -77,7 +82,15 @@ extension ViewController : GenresViewModelDelegate {
     }
 }
 
-extension ViewController : ArtistsViewModelDelegate {
+extension ManageArtistsViewController : ArtistsViewModelDelegate {
+    func artistOutputDidChange(_ viewModel: ArtistsViewModel) {
+        
+    }
+    
+    func artistErrorDidChange(_ viewModel: ArtistsViewModel) {
+        
+    }
+    
     func artistsErrorDidChange(_ viewModel: ArtistsViewModel) {
         
     }
@@ -88,14 +101,14 @@ extension ViewController : ArtistsViewModelDelegate {
 }
 
 
-extension ViewController : DataPickerViewDelegate {
+extension ManageArtistsViewController : DataPickerViewDelegate {
     func didSelectPicker(_ pickerView: DataPickerView, withOption option: String) {
         self.artistsViewModel.getArtistsByGenre(option);
     }
 }
 
 
-extension ViewController : UITableViewDataSource {
+extension ManageArtistsViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
@@ -104,12 +117,20 @@ extension ViewController : UITableViewDataSource {
         return self.artistsViewModel.artistsOutput?.count ?? 0;
     }
 }
-extension ViewController : UITableViewDelegate {
+extension ManageArtistsViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell();
         
         cell.textLabel?.text = self.artistsViewModel.artistsOutput?[ indexPath.row ].name
         
         return cell;
+    }
+}
+
+extension ManageArtistsViewController {
+    @objc func addArtistButtonTapped() {
+        let addArtistViewController = AddArtistViewController();
+        
+        self.pushToViewController(addArtistViewController);
     }
 }

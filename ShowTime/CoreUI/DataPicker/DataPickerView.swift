@@ -23,6 +23,8 @@ class DataPickerView: UIView {
     
     var options: [String] = [];
     
+    var selectedIndex: Int?
+    
     override init(frame: CGRect) {
         super.init(frame: frame);
         
@@ -90,6 +92,7 @@ extension DataPickerView : DataPickerViewControllerDelegate {
     func didSelectOption(_ option: String, atIndex: Int) {
         
         self.optionLabel.text = option;
+        self.selectedIndex = atIndex;
         
         self.delegate?.didSelectPicker(self, withOption: option);
         self.pickerViewController.dismiss(animated: true);

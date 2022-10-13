@@ -39,6 +39,10 @@ class GenresViewModel {
 
     }
     
+    func getGenreByIndex(_ index: Int) -> GenreOutput? {
+        self.genresOutput?[index];
+    }
+    
     var genresOutput: [GenreOutput]? {
         didSet {
             self.delegate?.genresOutputDidChange(self)

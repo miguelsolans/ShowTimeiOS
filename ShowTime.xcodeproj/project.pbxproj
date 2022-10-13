@@ -31,9 +31,13 @@
 		8BBFA1B328F2185600F18E51 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFA1B228F2185600F18E51 /* readme.md */; };
 		8BBFA1B528F2309900F18E51 /* GenreInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1B428F2309900F18E51 /* GenreInput.swift */; };
 		8BBFA1B728F233CD00F18E51 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1B628F233CD00F18E51 /* JSON.swift */; };
+		8BBFA1BF28F36F6700F18E51 /* AddArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1BE28F36F6700F18E51 /* AddArtistViewController.swift */; };
+		8BBFA1C128F4CEBE00F18E51 /* ArtistInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C028F4CEBE00F18E51 /* ArtistInput.swift */; };
+		8BBFA1C328F8B42900F18E51 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */; };
+		8BBFA1C628F8B58700F18E51 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C528F8B58700F18E51 /* TextField.swift */; };
 		8BC7E309287CE5B2008CE4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */; };
 		8BC7E30B287CE5B2008CE4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */; };
-		8BC7E30D287CE5B2008CE4A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30C287CE5B2008CE4A8 /* ViewController.swift */; };
+		8BC7E30D287CE5B2008CE4A8 /* ManageArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */; };
 		8BC7E310287CE5B2008CE4A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7E30E287CE5B2008CE4A8 /* Main.storyboard */; };
 		8BC7E312287CE5B5008CE4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */; };
 		8BC7E315287CE5B5008CE4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7E313287CE5B5008CE4A8 /* LaunchScreen.storyboard */; };
@@ -66,10 +70,14 @@
 		8BBFA1B628F233CD00F18E51 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		8BBFA1BC28F237FE00F18E51 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		8BBFA1BD28F2380900F18E51 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		8BBFA1BE28F36F6700F18E51 /* AddArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtistViewController.swift; sourceTree = "<group>"; };
+		8BBFA1C028F4CEBE00F18E51 /* ArtistInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInput.swift; sourceTree = "<group>"; };
+		8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		8BBFA1C528F8B58700F18E51 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		8BC7E305287CE5B2008CE4A8 /* ShowTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8BC7E30C287CE5B2008CE4A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageArtistsViewController.swift; sourceTree = "<group>"; };
 		8BC7E30F287CE5B2008CE4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC7E314287CE5B5008CE4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +100,7 @@
 			children = (
 				8B0CDC2A287F7BE60042EA5B /* ArtistModel.swift */,
 				8B0CDC2D287F7DB00042EA5B /* ArtistOutput.swift */,
+				8BBFA1C028F4CEBE00F18E51 /* ArtistInput.swift */,
 			);
 			path = Artists;
 			sourceTree = "<group>";
@@ -99,10 +108,11 @@
 		8B207C09287CE5F000689077 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BC7E30C287CE5B2008CE4A8 /* ViewController.swift */,
+				8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */,
 				8BAD0B5228A8717B00F7B8BA /* ManageGenresViewController.swift */,
 				8BBFA1A028F1E2B000F18E51 /* ConcertHistoryViewController.swift */,
 				8BBFA1AC28F1EC3F00F18E51 /* SettingsViewController.swift */,
+				8BBFA1BE28F36F6700F18E51 /* AddArtistViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -193,6 +203,7 @@
 		8B9CD62F28A8698400F5F6E5 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
+				8BBFA1C528F8B58700F18E51 /* TextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -233,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				8BBFA1B628F233CD00F18E51 /* JSON.swift */,
+				8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,9 +404,13 @@
 				8BB8DF49287F310900435D58 /* DataPickerView.swift in Sources */,
 				8B207C0F287CE6CD00689077 /* NetworkManager.swift in Sources */,
 				8BAD0B5328A8717B00F7B8BA /* ManageGenresViewController.swift in Sources */,
+				8BBFA1C128F4CEBE00F18E51 /* ArtistInput.swift in Sources */,
 				8BBFA1AD28F1EC3F00F18E51 /* SettingsViewController.swift in Sources */,
 				8B0CDC2E287F7DB00042EA5B /* ArtistOutput.swift in Sources */,
-				8BC7E30D287CE5B2008CE4A8 /* ViewController.swift in Sources */,
+				8BC7E30D287CE5B2008CE4A8 /* ManageArtistsViewController.swift in Sources */,
+				8BBFA1BF28F36F6700F18E51 /* AddArtistViewController.swift in Sources */,
+				8BBFA1C328F8B42900F18E51 /* ButtonExtension.swift in Sources */,
+				8BBFA1C628F8B58700F18E51 /* TextField.swift in Sources */,
 				8BC7E309287CE5B2008CE4A8 /* AppDelegate.swift in Sources */,
 				8BC7E30B287CE5B2008CE4A8 /* SceneDelegate.swift in Sources */,
 				8B207C1E287CEBB600689077 /* DataPickerViewController.swift in Sources */,
