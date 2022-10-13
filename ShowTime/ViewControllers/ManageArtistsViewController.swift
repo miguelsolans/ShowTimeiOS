@@ -131,6 +131,6 @@ extension ManageArtistsViewController {
     @objc func addArtistButtonTapped() {
         let addArtistViewController = AddArtistViewController();
         
-        self.navigationController?.pushViewController(addArtistViewController, animated: true);
+        self.pushToViewController(addArtistViewController);
     }
 }

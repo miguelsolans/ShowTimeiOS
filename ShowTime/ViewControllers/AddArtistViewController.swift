@@ -20,8 +20,6 @@ class AddArtistViewController : BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
-        self.shouldHideBottomBar(true);
-        
         self.genresViewModel.delegate = self;
         self.genresViewModel.getGenres();
         

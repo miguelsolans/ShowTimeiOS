@@ -12,13 +12,9 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
         self.style();
         self.layout();
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.shouldHideBottomBar(false);
     }
     
     func style() { }
@@ -36,14 +32,10 @@ class BaseViewController: UIViewController {
         self.present(alert, animated: true);
     }
     
-    func shouldHideBottomBar(_ hidden: Bool) {
+    func pushToViewController(_ viewController: BaseViewController) {
         
-        guard let tabBarController = self.tabBarController else {
-            return;
-        }
-        
-        tabBarController.tabBar.isHidden = hidden;
-        
+        viewController.hidesBottomBarWhenPushed = true;
+        self.navigationController?.pushViewController(viewController, animated: true);
     }
     
 }
