@@ -16,7 +16,7 @@ class ConcertViewModel {
     let model = ConcertModel()
     
     func getConcerts() {
-        self.model.getConcerts { output in
+        self.model.getAll { output in
             
             self.concertOutput = output;
             
@@ -26,6 +26,26 @@ class ConcertViewModel {
         }
     }
     
+    func getPastConcerts() {
+        self.model.getPast { output in
+            
+            self.concertOutput = output;
+            
+        } failure: { error in
+            
+        }
+
+    }
+    
+    func getScheduled() {
+        self.model.getScheduled { output in
+            
+            self.concertOutput = output;
+            
+        } failure: { error in
+            
+        }
+    }
     
     var concertOutput: [ConcertOutput]? {
         didSet {
