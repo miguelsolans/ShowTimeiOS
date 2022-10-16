@@ -25,6 +25,10 @@ class VenueViewModel {
 
     }
     
+    func getVenueByIndex(_ index: Int) -> VenueOutput? {
+        return self.venuesOutput?[index];
+    }
+    
     var venuesOutput: [VenueOutput]? {
         didSet {
             self.delegate?.venuesOutputDidChange(self)

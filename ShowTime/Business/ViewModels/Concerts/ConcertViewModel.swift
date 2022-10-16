@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ConcertViewModelDelegate {
-    func concertOutputDidChange();
+    func concertsOutputDidChange(_ viewModel: ConcertViewModel);
+    func concertOutputDidChange(_ viewModel: ConcertViewModel);
 }
 
 class ConcertViewModel {
@@ -18,7 +19,7 @@ class ConcertViewModel {
     func getConcerts() {
         self.model.getAll { output in
             
-            self.concertOutput = output;
+            self.concertsOutput = output;
             
         } failure: { error in
             
@@ -29,7 +30,7 @@ class ConcertViewModel {
     func getPastConcerts() {
         self.model.getPast { output in
             
-            self.concertOutput = output;
+            self.concertsOutput = output;
             
         } failure: { error in
             
@@ -40,16 +41,31 @@ class ConcertViewModel {
     func getScheduled() {
         self.model.getScheduled { output in
             
-            self.concertOutput = output;
+            self.concertsOutput = output;
             
         } failure: { error in
             
         }
     }
     
-    var concertOutput: [ConcertOutput]? {
+    func addNew(concert: ConcertInput) {
+        self.model.addNew(concert: concert) { output in
+            self.concertOutput = output
+        } failure: { error in
+            
+        }
+
+    }
+    
+    var concertOutput: ConcertOutput? {
         didSet {
-            self.delegate?.concertOutputDidChange();
+            self.delegate?.concertOutputDidChange(self);
+        }
+    }
+    
+    var concertsOutput: [ConcertOutput]? {
+        didSet {
+            self.delegate?.concertsOutputDidChange(self);
         }
     }
 }

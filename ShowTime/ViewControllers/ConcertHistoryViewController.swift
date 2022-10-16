@@ -73,11 +73,14 @@ class ConcertHistoryViewController : BaseViewController {
 }
 
 extension ConcertHistoryViewController : ConcertViewModelDelegate {
-    func concertOutputDidChange() {
-        
+    func concertsOutputDidChange(_ viewModel: ConcertViewModel) {
         self.tableView.reloadData();
-            
     }
+    
+    func concertOutputDidChange(_ viewModel: ConcertViewModel) {
+        
+    }
+    
 }
 
 extension ConcertHistoryViewController : UITableViewDelegate, UITableViewDataSource {
@@ -86,13 +89,13 @@ extension ConcertHistoryViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.concertViewModel.concertOutput?.count ?? 0;
+        return self.concertViewModel.concertsOutput?.count ?? 0;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell();
         
-        if let concerts = self.concertViewModel.concertOutput {
+        if let concerts = self.concertViewModel.concertsOutput {
             
             let concert = concerts[ indexPath.row ];
             

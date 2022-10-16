@@ -130,3 +130,11 @@ extension DatePicker {
         })
     }
 }
+
+
+// Getters
+extension DatePicker {
+    public func getFormattedDate() -> String {
+        return self.datePicker.date.getFormattedDate();
+    }
+}

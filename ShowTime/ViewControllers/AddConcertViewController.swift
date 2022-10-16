@@ -11,6 +11,7 @@ class AddConcertViewController : BaseViewController {
     
     let artistsViewModel = ArtistsViewModel();
     let venuesViewModel = VenueViewModel();
+    let concertViewModel = ConcertViewModel();
     
     let formStackView = UIStackView();
     
@@ -31,6 +32,8 @@ class AddConcertViewController : BaseViewController {
         
         self.venuesViewModel.delegate = self;
         self.venuesViewModel.getAll();
+        
+        self.concertViewModel.delegate = self;
     }
     
     
@@ -81,7 +84,20 @@ class AddConcertViewController : BaseViewController {
 
 extension AddConcertViewController {
     @objc func saveButtonTapped() {
-        self.navigationController?.popViewController(animated: true);
+        
+        if let artistIndex = self.artistPickerView.selectedIndex, let venueIndex = self.venuePickerView.selectedIndex {
+            
+            if let artist = self.artistsViewModel.getArtistByIndex(artistIndex), let venue = self.venuesViewModel.getVenueByIndex(venueIndex) {
+                let concert = ConcertInput(artistName: artist.name,
+                                           date: self.datePickerView.getFormattedDate(),
+                                           venueId: venue.id);
+                
+                self.concertViewModel.addNew(concert: concert);
+            }
+            
+        } else {
+            self.showAlertWithTitle("Error", andMessage: "Invalid input data!")
+        }
     }
 }
 
@@ -135,4 +151,14 @@ extension AddConcertViewController : VenueViewModelDelegate {
         self.venuePickerView.rootViewController = self;
         
     }
+}
+
+extension AddConcertViewController : ConcertViewModelDelegate {
+    func concertsOutputDidChange(_ viewModel: ConcertViewModel) { }
+    
+    func concertOutputDidChange(_ viewModel: ConcertViewModel) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
