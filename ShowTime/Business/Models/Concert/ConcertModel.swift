@@ -11,10 +11,10 @@ class ConcertModel: BaseModel {
     override init() {
         super.init();
         self.endpoints = [
-            "all": "http://localhost:3031/concert",
-            "past": "http://localhost:3031/concert/past",
-            "scheduled": "http://localhost:3031/concert/scheduled",
-            "new": "http://localhost:3031/concert"
+            "all": "concert",
+            "past": "concert/past",
+            "scheduled": "concert/scheduled",
+            "new": "concert"
         ];
     }
     
