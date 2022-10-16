@@ -11,7 +11,10 @@ class SettingsViewController : BaseViewController {
     
     let tableView = UITableView();
     var settings = [
-        MenuItem(option: "Manage Genres", id: "genres", viewController: ManageGenresViewController())
+        MenuItem(option: "Profile", id: "profile", viewController: BaseViewController()),
+        MenuItem(option: "Security", id: "security", viewController: BaseViewController()),
+        MenuItem(option: "Manage Genres", id: "genres", viewController: ManageGenresViewController()),
+        MenuItem(option: "Manage Venues", id: "venues", viewController: BaseViewController())
     ]
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,9 +65,11 @@ extension SettingsViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true);
         
         let viewController = self.settings[ indexPath.row ].viewController
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
 }

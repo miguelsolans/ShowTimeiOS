@@ -10,6 +10,7 @@ import UIKit
 class AddConcertViewController : BaseViewController {
     
     let artistsViewModel = ArtistsViewModel();
+    let venuesViewModel = VenueViewModel();
     
     let formStackView = UIStackView();
     
@@ -27,6 +28,9 @@ class AddConcertViewController : BaseViewController {
         
         self.artistsViewModel.delegate = self;
         self.artistsViewModel.getArtists();
+        
+        self.venuesViewModel.delegate = self;
+        self.venuesViewModel.getAll();
     }
     
     
@@ -112,4 +116,23 @@ extension AddConcertViewController : ArtistsViewModelDelegate {
         
     }
     
+}
+
+
+extension AddConcertViewController : VenueViewModelDelegate {
+    func venuesOutputDidChange(_ viewModel: VenueViewModel) {
+        print("ViewModel - Venues Output didChange");
+        
+        var options: [String] = [];
+        
+        if let safeVenues = viewModel.venuesOutput {
+            for venue in safeVenues {
+                options.append(venue.name)
+            }
+        }
+        
+        self.venuePickerView.options = options;
+        self.venuePickerView.rootViewController = self;
+        
+    }
 }
