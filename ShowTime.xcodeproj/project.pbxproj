@@ -36,6 +36,8 @@
 		8BBFA1C328F8B42900F18E51 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */; };
 		8BBFA1C628F8B58700F18E51 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C528F8B58700F18E51 /* TextField.swift */; };
 		8BBFA1C828F8CB7600F18E51 /* AddConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C728F8CB7600F18E51 /* AddConcertViewController.swift */; };
+		8BBFA1CA28FB05B000F18E51 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1C928FB05B000F18E51 /* DatePicker.swift */; };
+		8BBFA1CC28FB7A5D00F18E51 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1CB28FB7A5D00F18E51 /* Date.swift */; };
 		8BC7E309287CE5B2008CE4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */; };
 		8BC7E30B287CE5B2008CE4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */; };
 		8BC7E30D287CE5B2008CE4A8 /* ManageArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */; };
@@ -76,6 +78,8 @@
 		8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		8BBFA1C528F8B58700F18E51 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		8BBFA1C728F8CB7600F18E51 /* AddConcertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConcertViewController.swift; sourceTree = "<group>"; };
+		8BBFA1C928FB05B000F18E51 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		8BBFA1CB28FB7A5D00F18E51 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8BC7E305287CE5B2008CE4A8 /* ShowTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		8B9CD63028A869A500F5F6E5 /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
+				8BBFA1C928FB05B000F18E51 /* DatePicker.swift */,
 			);
 			path = DatePicker;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			children = (
 				8BBFA1B628F233CD00F18E51 /* JSON.swift */,
 				8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */,
+				8BBFA1CB28FB7A5D00F18E51 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				8B207C1A287CE93B00689077 /* GenresViewModel.swift in Sources */,
 				8B207C15287CE7F600689077 /* BaseModel.swift in Sources */,
 				8B0CDC29287F72820042EA5B /* BaseViewController.swift in Sources */,
+				8BBFA1CC28FB7A5D00F18E51 /* Date.swift in Sources */,
 				8B207C17287CE81900689077 /* GenreModel.swift in Sources */,
 				8BBFA1B528F2309900F18E51 /* GenreInput.swift in Sources */,
 				8BBFA1A828F1E4D600F18E51 /* ConcertModel.swift in Sources */,
@@ -418,6 +425,7 @@
 				8BC7E309287CE5B2008CE4A8 /* AppDelegate.swift in Sources */,
 				8BC7E30B287CE5B2008CE4A8 /* SceneDelegate.swift in Sources */,
 				8B207C1E287CEBB600689077 /* DataPickerViewController.swift in Sources */,
+				8BBFA1CA28FB05B000F18E51 /* DatePicker.swift in Sources */,
 				8BBFA1A628F1E46900F18E51 /* ConcertViewModel.swift in Sources */,
 				8BAD0B5128A86EFD00F7B8BA /* TabBarViewController.swift in Sources */,
 				8B0CDC30287F7F2E0042EA5B /* ArtistsViewModel.swift in Sources */,

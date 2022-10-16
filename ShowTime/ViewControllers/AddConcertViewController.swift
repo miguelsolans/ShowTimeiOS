@@ -10,7 +10,6 @@ import UIKit
 class AddConcertViewController : BaseViewController {
     
     let artistsViewModel = ArtistsViewModel();
-    let genresViewModel = GenresViewModel();
     
     let formStackView = UIStackView();
     
@@ -24,8 +23,8 @@ class AddConcertViewController : BaseViewController {
         super.viewDidLoad();
         
         datePickerView.initPicker(withLabel: "Concert Date");
-        self.genresViewModel.delegate = self;
-        self.genresViewModel.getGenres()
+        
+        
         self.artistsViewModel.delegate = self;
         self.artistsViewModel.getArtists();
     }
@@ -110,17 +109,6 @@ extension AddConcertViewController : ArtistsViewModelDelegate {
     }
     
     func artistErrorDidChange(_ viewModel: ArtistsViewModel) {
-        
-    }
-    
-}
-
-extension AddConcertViewController : GenresViewModelDelegate {
-    func genresOutputDidChange(_ viewModel: GenresViewModel) {
-        
-    }
-    
-    func genresErrorDidChange(_ viewModel: GenresViewModel) {
         
     }
     
