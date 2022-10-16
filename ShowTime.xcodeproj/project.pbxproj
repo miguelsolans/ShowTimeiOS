@@ -280,6 +280,7 @@
 		8BBFA1BA28F237DF00F18E51 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				8BC7E316287CE5B5008CE4A8 /* Info.plist */,
 				8BBFA1BC28F237FE00F18E51 /* Production.xcconfig */,
 				8BBFA1BD28F2380900F18E51 /* Development.xcconfig */,
 			);
@@ -303,14 +304,6 @@
 			path = Venues;
 			sourceTree = "<group>";
 		};
-		8BBFA1D928FC642900F18E51 /* SupportFiles */ = {
-			isa = PBXGroup;
-			children = (
-				8BC7E316287CE5B5008CE4A8 /* Info.plist */,
-			);
-			path = SupportFiles;
-			sourceTree = "<group>";
-		};
 		8BC7E2FC287CE5B2008CE4A8 = {
 			isa = PBXGroup;
 			children = (
@@ -330,7 +323,6 @@
 		8BC7E307287CE5B2008CE4A8 /* ShowTime */ = {
 			isa = PBXGroup;
 			children = (
-				8BBFA1D928FC642900F18E51 /* SupportFiles */,
 				8BBFA1BA28F237DF00F18E51 /* Configs */,
 				8BBFA1B928F237BB00F18E51 /* Resources */,
 				8BBFA1B828F237AE00F18E51 /* Extensions */,
@@ -612,7 +604,7 @@
 				CURRENT_PROJECT_VERSION = "${APP_BUILD_VERSION}";
 				DEVELOPMENT_TEAM = W2XGFCJV6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShowTime/SupportFiles/Info.plist;
+				INFOPLIST_FILE = ShowTime/Configs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -640,7 +632,7 @@
 				CURRENT_PROJECT_VERSION = "${APP_BUILD_VERSION}";
 				DEVELOPMENT_TEAM = W2XGFCJV6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShowTime/SupportFiles/Info.plist;
+				INFOPLIST_FILE = ShowTime/Configs/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
