@@ -30,14 +30,16 @@ class NetworkManager {
             }
         }
         
+        let baseURL = Bundle.main.object(forInfoDictionaryKey: "BaseURL") as! String
+        let fullURL = "\(baseURL)/\(urlString)";
         
-        var request = URLRequest(url: URL(string: urlString)!)
+        var request = URLRequest(url: URL(string: fullURL)!)
         request.httpMethod = httpMethod.method;
         request.allHTTPHeaderFields = self.configureHeaders(customEndpoint: false);
         
         if((parameters != nil) && !(httpMethod == .get)) {
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters!, options: .prettyPrinted)
             } catch let error {
                 completionOnMain(.failure(error));
                 return
@@ -73,7 +75,7 @@ class NetworkManager {
     private func configureHeaders(customEndpoint: Bool) -> Dictionary<String, String> {
         
         if(!customEndpoint) {
-            /* TODO: Later when Auth Services have been developed */
+            /* TODO: Later when Auth Services has been developed */
             return [
                 "Content-Type": "application/json",
                 "Accept": "application/json"

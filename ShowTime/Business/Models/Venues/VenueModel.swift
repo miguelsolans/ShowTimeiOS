@@ -13,7 +13,7 @@ class VenueModel : BaseModel {
         super.init();
         
         self.endpoints = [
-            "list": "http://localhost:3031/venue"
+            "list": "venue"
         ]
     }
     

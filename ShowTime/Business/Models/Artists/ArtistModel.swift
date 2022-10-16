@@ -13,9 +13,9 @@ class ArtistModel: BaseModel {
         super.init();
         
         self.endpoints = [
-            "listArtists": "http://localhost:3031/artist",
-            "listArtistsByGenre": "http://localhost:3031/artist",
-            "createArtist": "http://localhost:3031/artist"
+            "listArtists": "artist",
+            "listArtistsByGenre": "artist",
+            "createArtist": "artist"
         ];
     }
     
