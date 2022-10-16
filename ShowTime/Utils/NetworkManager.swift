@@ -30,8 +30,10 @@ class NetworkManager {
             }
         }
         
+        let baseURL = Bundle.main.object(forInfoDictionaryKey: "APP_API_BASE_URL") as! String
+        let fullURL = "\(baseURL)/\(urlString)";
         
-        var request = URLRequest(url: URL(string: urlString)!)
+        var request = URLRequest(url: URL(string: fullURL)!)
         request.httpMethod = httpMethod.method;
         request.allHTTPHeaderFields = self.configureHeaders(customEndpoint: false);
         
