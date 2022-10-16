@@ -95,6 +95,7 @@
 		8BBFA1DE28FC6A2000F18E51 /* InfoDEV.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = InfoDEV.plist; sourceTree = "<group>"; };
 		8BBFA1ED28FC715200F18E51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8BBFA1F128FC730900F18E51 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8BBFA1F328FC738500F18E51 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8BC7E305287CE5B2008CE4A8 /* ShowTime DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShowTime DEV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -481,6 +482,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8BBFA1ED28FC715200F18E51 /* en */,
+				8BBFA1F328FC738500F18E51 /* pt-PT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
