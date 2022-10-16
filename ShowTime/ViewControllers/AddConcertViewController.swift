@@ -9,20 +9,39 @@ import UIKit
 
 class AddConcertViewController : BaseViewController {
     
-    // TODO: Artist Picker
-    let datePicker = UIDatePicker();
-    // TODO: Venue Picker
+    let artistsViewModel = ArtistsViewModel();
+    let genresViewModel = GenresViewModel();
+    
+    let formStackView = UIStackView();
+    
+    let artistPickerView = DataPickerView();
+    let venuePickerView = DataPickerView();
+    let datePickerView = DatePicker();
+    
     let saveButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        datePickerView.initPicker(withLabel: "Concert Date");
+        self.genresViewModel.delegate = self;
+        self.genresViewModel.getGenres()
+        self.artistsViewModel.delegate = self;
+        self.artistsViewModel.getArtists();
     }
     
     
     override func style() {
-        datePicker.translatesAutoresizingMaskIntoConstraints = false;
-        datePicker.preferredDatePickerStyle = .wheels;
-        datePicker.datePickerMode = .date;
+        
+        self.formStackView.translatesAutoresizingMaskIntoConstraints = false;
+        self.formStackView.axis = .vertical;
+        self.formStackView.distribution = .equalSpacing
+        self.formStackView.spacing = 10;
+        
+        // Form elements
+        self.artistPickerView.translatesAutoresizingMaskIntoConstraints = false;
+        self.venuePickerView.translatesAutoresizingMaskIntoConstraints = false;
+        self.datePickerView.translatesAutoresizingMaskIntoConstraints = false;
         
         // Save Button
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false;
@@ -33,13 +52,18 @@ class AddConcertViewController : BaseViewController {
     
     override func layout() {
         
-        self.view.addSubview(datePicker);
-        self.view.addSubview(saveButton);
+        self.view.addSubview(formStackView);
+        self.view.addSubview(saveButton)
+        
+        formStackView.addArrangedSubview(artistPickerView);
+        formStackView.addArrangedSubview(venuePickerView);
+        formStackView.addArrangedSubview(datePickerView);
         
         NSLayoutConstraint.activate([
-            
-            self.datePicker.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.datePicker.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.formStackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.formStackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.formStackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.formStackView.bottomAnchor.constraint(equalTo: self.saveButton.topAnchor),
             
             self.saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.saveButton.heightAnchor.constraint(equalToConstant: 50),
@@ -56,4 +80,48 @@ extension AddConcertViewController {
     @objc func saveButtonTapped() {
         self.navigationController?.popViewController(animated: true);
     }
+}
+
+
+// MARK: - ViewModel Delegate Methods
+extension AddConcertViewController : ArtistsViewModelDelegate {
+    func artistsOutputDidChange(_ viewModel: ArtistsViewModel) {
+        print("ViewModel - Artists Output didChange");
+        
+        var options: [String] = [];
+        
+        if let safeArtists = viewModel.artistsOutput {
+            for artist in safeArtists {
+                options.append(artist.name)
+            }
+        }
+        
+        self.artistPickerView.options = options;
+        self.artistPickerView.rootViewController = self;
+        // self.artistPickerView.delegate = self;
+    }
+    
+    func artistsErrorDidChange(_ viewModel: ArtistsViewModel) {
+        
+    }
+    
+    func artistOutputDidChange(_ viewModel: ArtistsViewModel) {
+        
+    }
+    
+    func artistErrorDidChange(_ viewModel: ArtistsViewModel) {
+        
+    }
+    
+}
+
+extension AddConcertViewController : GenresViewModelDelegate {
+    func genresOutputDidChange(_ viewModel: GenresViewModel) {
+        
+    }
+    
+    func genresErrorDidChange(_ viewModel: GenresViewModel) {
+        
+    }
+    
 }

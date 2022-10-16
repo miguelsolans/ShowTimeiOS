@@ -49,7 +49,7 @@ class ConcertHistoryViewController : BaseViewController {
             self.segmentedControl.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.segmentedControl.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             
-            self.tableView.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.segmentedControl.bottomAnchor, constant: 8),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor)
