@@ -27,7 +27,7 @@ class ManageArtistsViewController: BaseViewController {
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         
-        self.title = "Manage Artists"
+        self.title = NSLocalizedString("manageArtists", comment: "Page Title")
         
     }
 

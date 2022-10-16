@@ -12,8 +12,8 @@ fileprivate enum SegmentedOption : Int, CaseIterable {
     case schedule = 1
     var description: String {
         switch self {
-        case .past: return "Past"
-        case .schedule: return "Scheduled"
+        case .past: return NSLocalizedString("pastEvent", comment: "")
+        case .schedule: return NSLocalizedString("scheduledEvent", comment: "")
         }
     }
 }

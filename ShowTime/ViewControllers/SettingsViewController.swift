@@ -11,10 +11,10 @@ class SettingsViewController : BaseViewController {
     
     let tableView = UITableView();
     var settings = [
-        MenuItem(option: "Profile", id: "profile", viewController: BaseViewController()),
-        MenuItem(option: "Security", id: "security", viewController: BaseViewController()),
-        MenuItem(option: "Manage Genres", id: "genres", viewController: ManageGenresViewController()),
-        MenuItem(option: "Manage Venues", id: "venues", viewController: BaseViewController())
+        MenuItem(option: NSLocalizedString("profile", comment: "Menu option label"), id: "profile", viewController: BaseViewController()),
+        MenuItem(option: NSLocalizedString("security", comment: "Menu option label"), id: "security", viewController: BaseViewController()),
+        MenuItem(option: NSLocalizedString("manageGenres", comment: "Menu option label"), id: "genres", viewController: ManageGenresViewController()),
+        MenuItem(option: NSLocalizedString("manageVenues", comment: "Menu option label"), id: "venues", viewController: BaseViewController())
     ]
     
     override func viewDidAppear(_ animated: Bool) {
