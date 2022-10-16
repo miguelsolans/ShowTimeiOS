@@ -1,0 +1,16 @@
+//
+//  QA.xcconfig
+//  ShowTime
+//
+//  Created by Miguel Solans on 16/10/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = ShowTime QA
+APP_IDENTIFIER = com.miguelsolans.showtime.qa
+APP_VERSION = 0.0.1
+APP_BUILD_VERSION = 20221016.01
+APP_API_BASE_URL = qa-showtime.herokuapp.com
+APP_PROPERTY_FILE = ShowTime/Configs/InfoQA.plist
