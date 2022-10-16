@@ -47,6 +47,11 @@ class ArtistsViewModel {
     }
     
     
+    func getArtistByIndex(_ index: Int) -> ArtistOutput? {
+        self.artistsOutput?[index];
+    }
+    
+    
     var artistOutput: ArtistOutput? {
         didSet {
             self.delegate?.artistOutputDidChange(self)
