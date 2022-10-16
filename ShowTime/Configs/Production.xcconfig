@@ -12,4 +12,4 @@ APP_IDENTIFIER = com.miguelsolans.showtime
 APP_VERSION = 0.0.1
 APP_BUILD_VERSION = 20221016.01
 APP_API_BASE_URL = localhost:3031
-// APP_PROPERTY_FILE = ShowTime/SupportFiles/Info.plist
+APP_PROPERTY_FILE = ShowTime/Configs/InfoPROD.plist
