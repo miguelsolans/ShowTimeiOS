@@ -89,7 +89,7 @@
 		8BBFA1D328FB83A500F18E51 /* VenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueViewModel.swift; sourceTree = "<group>"; };
 		8BBFA1D528FC2F3A00F18E51 /* ConcertInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertInput.swift; sourceTree = "<group>"; };
 		8BBFA1D728FC325A00F18E51 /* DataPickerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerOption.swift; sourceTree = "<group>"; };
-		8BC7E305287CE5B2008CE4A8 /* ShowTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BC7E305287CE5B2008CE4A8 /* ShowTime DEV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ShowTime DEV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageArtistsViewController.swift; sourceTree = "<group>"; };
@@ -303,6 +303,14 @@
 			path = Venues;
 			sourceTree = "<group>";
 		};
+		8BBFA1D928FC642900F18E51 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8BC7E316287CE5B5008CE4A8 /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		8BC7E2FC287CE5B2008CE4A8 = {
 			isa = PBXGroup;
 			children = (
@@ -314,7 +322,7 @@
 		8BC7E306287CE5B2008CE4A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BC7E305287CE5B2008CE4A8 /* ShowTime.app */,
+				8BC7E305287CE5B2008CE4A8 /* ShowTime DEV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 		8BC7E307287CE5B2008CE4A8 /* ShowTime */ = {
 			isa = PBXGroup;
 			children = (
+				8BBFA1D928FC642900F18E51 /* SupportFiles */,
 				8BBFA1BA28F237DF00F18E51 /* Configs */,
 				8BBFA1B928F237BB00F18E51 /* Resources */,
 				8BBFA1B828F237AE00F18E51 /* Extensions */,
@@ -334,7 +343,6 @@
 				8B207C0D287CE67100689077 /* Utils */,
 				8BC7E308287CE5B2008CE4A8 /* AppDelegate.swift */,
 				8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */,
-				8BC7E316287CE5B5008CE4A8 /* Info.plist */,
 				8BAD0B5028A86EFD00F7B8BA /* TabBarViewController.swift */,
 				8BBFA1B228F2185600F18E51 /* readme.md */,
 			);
@@ -369,7 +377,7 @@
 			);
 			name = ShowTime;
 			productName = ShowTime;
-			productReference = 8BC7E305287CE5B2008CE4A8 /* ShowTime.app */;
+			productReference = 8BC7E305287CE5B2008CE4A8 /* ShowTime DEV.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -480,6 +488,7 @@
 /* Begin XCBuildConfiguration section */
 		8BC7E317287CE5B5008CE4A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BBFA1BD28F2380900F18E51 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -540,6 +549,7 @@
 		};
 		8BC7E318287CE5B5008CE4A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BBFA1BC28F237FE00F18E51 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -594,14 +604,15 @@
 		};
 		8BC7E31A287CE5B5008CE4A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BBFA1BD28F2380900F18E51 /* Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "${APP_BUILD_VERSION}";
 				DEVELOPMENT_TEAM = W2XGFCJV6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShowTime/Info.plist;
+				INFOPLIST_FILE = ShowTime/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -610,9 +621,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.miguelsolans.ShowTime;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = "${APP_VERSION}";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_IDENTIFIER}";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,14 +632,15 @@
 		};
 		8BC7E31B287CE5B5008CE4A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BBFA1BC28F237FE00F18E51 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "${APP_BUILD_VERSION}";
 				DEVELOPMENT_TEAM = W2XGFCJV6C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShowTime/Info.plist;
+				INFOPLIST_FILE = ShowTime/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -637,9 +649,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.miguelsolans.ShowTime;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = "${APP_VERSION}";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_IDENTIFIER}";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
