@@ -11,5 +11,5 @@ APP_NAME = ShowTime
 APP_IDENTIFIER = com.miguelsolans.showtime
 APP_VERSION = 0.0.1
 APP_BUILD_VERSION = 20221016.01
-APP_API_BASE_URL = localhost:3031
+APP_API_BASE_URL = prod-showtime.herokuapp.com
 APP_PROPERTY_FILE = ShowTime/Configs/InfoPROD.plist
