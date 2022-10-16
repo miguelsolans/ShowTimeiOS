@@ -24,7 +24,7 @@ class AddConcertViewController : BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        datePickerView.initPicker(withLabel: "Concert Date");
+        datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
         
         
         self.artistsViewModel.delegate = self;
@@ -51,7 +51,7 @@ class AddConcertViewController : BaseViewController {
         
         // Save Button
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false;
-        self.saveButton.setTitle("Save", for: []);
+        self.saveButton.setTitle(NSLocalizedString("save", comment: "Action Title"), for: []);
         self.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchDown)
         self.saveButton.applyStyle();
     }
@@ -96,7 +96,7 @@ extension AddConcertViewController {
             }
             
         } else {
-            self.showAlertWithTitle("Error", andMessage: "Invalid input data!")
+            self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Invalid Data"))
         }
     }
 }

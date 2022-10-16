@@ -59,7 +59,7 @@ extension DataPickerView {
         self.arrowImageView.image = UIImage(systemName: "arrow.right")?.withRenderingMode(.alwaysTemplate);
         self.arrowImageView.tintColor = .blue;
         
-        self.optionLabel.text = "Choose an option";
+        self.optionLabel.text = NSLocalizedString("chooseOption", comment: "Picker placeholder");
         
     }
     

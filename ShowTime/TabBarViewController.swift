@@ -23,10 +23,9 @@ class TabBarViewController: UITabBarController {
     
     func setupViewControllers() {
         viewControllers = [
-            createNavController(for: ManageArtistsViewController(), title: "Bands", image: UIImage(systemName: "house")!),
-            createNavController(for: ConcertHistoryViewController(), title: "Concerts", image: UIImage(systemName: "guitars")!),
-            createNavController(for: SettingsViewController(), title: "Settings", image: UIImage(systemName: "gear")!)
-            // createNavController(for: GenresViewController(), title: "Settings", image: UIImage(systemName: "gear")!)
+            createNavController(for: ManageArtistsViewController(), title: NSLocalizedString("artists", comment: ""), image: UIImage(systemName: "house")!),
+            createNavController(for: ConcertHistoryViewController(), title: NSLocalizedString("concerts", comment: ""), image: UIImage(systemName: "guitars")!),
+            createNavController(for: SettingsViewController(), title: NSLocalizedString("settings", comment: ""), image: UIImage(systemName: "gear")!)
         ];
     }
     
@@ -40,16 +39,5 @@ class TabBarViewController: UITabBarController {
         rootViewController.navigationItem.title = title;
         return navController;
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

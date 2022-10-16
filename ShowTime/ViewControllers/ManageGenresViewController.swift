@@ -34,7 +34,7 @@ class ManageGenresViewController : BaseViewController {
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addGenreButtonTapped))
         navigationItem.setRightBarButton(addButton, animated: true);
         
-        self.title = "Manage Genres";
+        self.title = NSLocalizedString("manageGenres", comment: "Page Title");
     }
     
     override func layout() {
@@ -94,26 +94,26 @@ extension ManageGenresViewController : GenresViewModelDelegate {
 
 extension ManageGenresViewController {
     @objc func addGenreButtonTapped() {
-        let alert = UIAlertController(title: "New Genre", message: "Insert the details of the new genre", preferredStyle: .alert);
+        let alert = UIAlertController(title: NSLocalizedString("newGenre", comment: "Alert Title"), message: NSLocalizedString("insertGenreDetails", comment: "Tooltip Message"), preferredStyle: .alert);
         
         var genreTextField : UITextField?;
         var subGenreTextField : UITextField?;
         var descriptionTextField : UITextField?;
         
         alert.addTextField { textField in
-            textField.placeholder = "Genre"
+            textField.placeholder = NSLocalizedString("genre", comment: "TextField Placeholder")
             genreTextField = textField;
         }
         alert.addTextField { textField in
-            textField.placeholder = "Sub-genre"
+            textField.placeholder = NSLocalizedString("subGenre", comment: "TextField Placeholder");
             subGenreTextField = textField
         }
         alert.addTextField { textField in
-            textField.placeholder = "Description"
+            textField.placeholder = NSLocalizedString("description", comment: "TextField Placeholder");
             descriptionTextField = textField
         }
         
-        let okAction = UIAlertAction(title: "Ok", style: .default) { _ in
+        let okAction = UIAlertAction(title: NSLocalizedString("ok", comment: "Action"), style: .default) { _ in
             
             if let genre = genreTextField?.text, let subGenre = subGenreTextField?.text, let genreDescription = descriptionTextField?.text {
                 let genre = GenreInput(genre: genre, subGenre: subGenre, description: genreDescription);
@@ -123,7 +123,7 @@ extension ManageGenresViewController {
         }
         alert.addAction(okAction);
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel);
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: "Action"), style: .cancel);
         alert.addAction(cancelAction);
         
         self.present(alert, animated: true)

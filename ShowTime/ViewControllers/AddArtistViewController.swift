@@ -27,13 +27,13 @@ class AddArtistViewController : BaseViewController {
     }
     
     override func style() {
-        self.title = "New Artist";
+        self.title = NSLocalizedString("newArtist", comment: "Page title")
         
         self.genrePicker.translatesAutoresizingMaskIntoConstraints = false;
         self.artistTextField.translatesAutoresizingMaskIntoConstraints = false;
-        artistTextField.placeholder = "Artist Name";
+        artistTextField.placeholder = NSLocalizedString("artistName", comment: "TextField Placeholder");
         
-        self.saveButton.setTitle("Save", for: [])
+        self.saveButton.setTitle(NSLocalizedString("save", comment: "Action title"), for: [])
         self.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchDown);
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false;
         self.saveButton.applyStyle();
@@ -129,10 +129,10 @@ extension AddArtistViewController {
                 let artist = ArtistInput(name: artistName, genreName: genre.subGenre);
                 self.artistViewModel.createArtist(artist)
             } else {
-                self.showAlertWithTitle("Error", andMessage: "The inserted data is incorrect!");
+                self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Error Description"));
             }
         } else {
-            self.showAlertWithTitle("Error", andMessage: "No genres have been selected!");
+            self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("genreMissingSelection", comment: "Missing Selection"));
         }
         
     }
