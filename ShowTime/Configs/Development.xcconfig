@@ -8,7 +8,8 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 APP_NAME = ShowTime DEV
-APP_IDENTIFIER =
-APP_VERSION =
-APP_BUILD_VERSION =
+APP_IDENTIFIER = com.miguelsolans.showtime.dev
+APP_VERSION = 0.0.1
+APP_BUILD_VERSION = 20221016.01
 APP_API_BASE_URL = localhost:3031
+APP_PROPERTY_FILE = ShowTime/Configs/InfoDEV.plist

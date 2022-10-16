@@ -13,8 +13,8 @@ class GenreModel: BaseModel {
         super.init();
         
         self.endpoints = [
-            "listGenres": "http://localhost:3031/genre",
-            "addGenre": "http://localhost:3031/genre"
+            "listGenres": "genre",
+            "addGenre": "genre"
         ];
     }
     
