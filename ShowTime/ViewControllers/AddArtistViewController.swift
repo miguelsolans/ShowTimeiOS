@@ -14,7 +14,7 @@ class AddArtistViewController : BaseViewController {
     let artistViewModel = ArtistsViewModel();
     
     let genrePicker = DataPickerView();
-    let artistTextField = UITextField();
+    let artistTextField = TextField(placeholder: "Artist Name");
     let saveButton = UIButton(type: .system);
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,7 +31,6 @@ class AddArtistViewController : BaseViewController {
         
         self.genrePicker.translatesAutoresizingMaskIntoConstraints = false;
         self.artistTextField.translatesAutoresizingMaskIntoConstraints = false;
-        artistTextField.placeholder = NSLocalizedString("artistName", comment: "TextField Placeholder");
         
         self.saveButton.setTitle(NSLocalizedString("save", comment: "Action title"), for: [])
         self.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchDown);
@@ -56,8 +55,8 @@ class AddArtistViewController : BaseViewController {
             self.genrePicker.heightAnchor.constraint(equalToConstant: 40),
             
             self.artistTextField.topAnchor.constraint(equalTo: self.genrePicker.bottomAnchor, constant: 8),
-            self.artistTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.artistTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            self.artistTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.artistTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             self.artistTextField.heightAnchor.constraint(equalToConstant: 40),
             
             self.saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
@@ -123,18 +122,34 @@ extension AddArtistViewController {
     
     @objc func saveButtonTapped() {
         // Save Artist
-        if let selectedIndex = self.genrePicker.selectedIndex {
-            
-            if let genre = self.genresViewModel.getGenreByIndex(selectedIndex), let artistName = self.artistTextField.text {
-                let artist = ArtistInput(name: artistName, genreName: genre.subGenre);
-                self.artistViewModel.createArtist(artist)
+        
+        if(self.isValidForm()) {
+            if let selectedIndex = self.genrePicker.selectedIndex {
+                
+                if let genre = self.genresViewModel.getGenreByIndex(selectedIndex) {
+                    let artist = ArtistInput(name: self.artistTextField.getText(), genreName: genre.subGenre);
+                    self.artistViewModel.createArtist(artist)
+                } else {
+                    self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Error Description"));
+                }
             } else {
-                self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Error Description"));
+                self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("genreMissingSelection", comment: "Missing Selection"));
             }
         } else {
-            self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("genreMissingSelection", comment: "Missing Selection"));
+            self.showAlertWithTitle("Error", andMessage: "Invalid data!");
         }
         
     }
     
+}
+
+// MARK: - Validations
+extension AddArtistViewController {
+    func validateArtistName() -> Bool {
+        return !self.artistTextField.isEmtpy()
+    }
+    
+    func isValidForm() -> Bool {
+        return self.validateArtistName()
+    }
 }
