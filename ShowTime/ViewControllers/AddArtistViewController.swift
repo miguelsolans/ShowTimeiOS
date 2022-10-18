@@ -13,7 +13,8 @@ class AddArtistViewController : BaseViewController {
     let genresViewModel = GenresViewModel();
     let artistViewModel = ArtistsViewModel();
     
-    let genrePicker = DataPickerView();
+    var genrePicker: DataPickerView!
+    
     let artistTextField = TextField(placeholder: "Artist Name");
     let saveButton = UIButton(type: .system);
     
@@ -29,6 +30,7 @@ class AddArtistViewController : BaseViewController {
     override func style() {
         self.title = NSLocalizedString("newArtist", comment: "Page title")
         
+        self.genrePicker = DataPickerView(target: self, placeholder: "Genre")
         self.genrePicker.translatesAutoresizingMaskIntoConstraints = false;
         self.artistTextField.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -50,9 +52,9 @@ class AddArtistViewController : BaseViewController {
         NSLayoutConstraint.activate([
             
             self.genrePicker.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.genrePicker.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            self.genrePicker.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            self.genrePicker.heightAnchor.constraint(equalToConstant: 40),
+            self.genrePicker.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.genrePicker.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.genrePicker.heightAnchor.constraint(equalToConstant: 55),
             
             self.artistTextField.topAnchor.constraint(equalTo: self.genrePicker.bottomAnchor, constant: 8),
             self.artistTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),

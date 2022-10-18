@@ -15,17 +15,18 @@ class AddConcertViewController : BaseViewController {
     
     let formStackView = UIStackView();
     
-    let artistPickerView = DataPickerView();
-    let venuePickerView = DataPickerView();
+    var artistPickerView: DataPickerView!;
+    var venuePickerView: DataPickerView!;
     let datePickerView = DatePicker();
     
     let saveButton = UIButton(type: .system)
     
     override func viewDidLoad() {
+        self.datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
+        self.artistPickerView = DataPickerView(target: self, placeholder: "Artist");
+        self.venuePickerView = DataPickerView(target: self, placeholder: "Venue");
+        
         super.viewDidLoad();
-        
-        datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
-        
         
         self.artistsViewModel.delegate = self;
         self.artistsViewModel.getArtists();

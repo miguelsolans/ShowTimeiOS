@@ -12,13 +12,16 @@ class ManageArtistsViewController: BaseViewController {
 
     let genresViewModel = GenresViewModel();
     let artistsViewModel = ArtistsViewModel();
-    let pickerView = DataPickerView();
+    var pickerView: DataPickerView!;
     
     let tableView = UITableView()
     
     override func viewDidLoad() {
+        self.pickerView = DataPickerView(target: self, placeholder: "Genre")
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         
         self.artistsViewModel.delegate = self;
         self.genresViewModel.delegate = self;
@@ -34,6 +37,7 @@ class ManageArtistsViewController: BaseViewController {
     
     override func style() {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false;
+        self.pickerView.translatesAutoresizingMaskIntoConstraints = false;
         
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addArtistButtonTapped))
         navigationItem.setRightBarButton(addButton, animated: true);
@@ -46,9 +50,9 @@ class ManageArtistsViewController: BaseViewController {
         
         NSLayoutConstraint.activate([
             self.pickerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.pickerView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
-            self.pickerView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
-            self.pickerView.heightAnchor.constraint(equalToConstant: 40),
+            self.pickerView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 8),
+            self.pickerView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -8),
+            self.pickerView.heightAnchor.constraint(equalToConstant: 55),
             
             self.tableView.topAnchor.constraint(equalTo: self.pickerView.bottomAnchor),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),

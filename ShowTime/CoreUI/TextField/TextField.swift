@@ -26,7 +26,7 @@ class TextField : UIView {
         
         self.setupGestures();
         self.style();
-        self.layout();
+        self.layout(); 
     }
     
     required init?(coder aDecoder: NSCoder) {

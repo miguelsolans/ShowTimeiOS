@@ -17,66 +17,83 @@ class DataPickerView: UIView {
     weak var delegate: DataPickerViewDelegate?
     var pickerViewController = DataPickerViewController(options: []);
 
-    let stackView = UIStackView();
-    let arrowImageView = UIImageView();
-    let optionLabel = UILabel();
+    // ViewControllers
     
+    // Properties
+    var placeholder: String?
+    var selectedIndex: Int?
     var options: [String] = [];
     
-    var selectedIndex: Int?
+    // UI Components
+    let arrowImageView = UIImageView();
+    let placeholderLabel = UILabel();
     
-    override init(frame: CGRect) {
-        super.init(frame: frame);
+    let selectedOptionLabel = UILabel();
+    
+    
+    
+    required init(target: UIViewController, placeholder: String){
+        self.placeholder = placeholder;
+        self.rootViewController = target;
+        super.init(frame: CGRect.zero)
         
-        
-        self.style()
+        self.setupGestures();
+        self.style();
         self.layout();
-        self.setup();
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented");
     }
     
-
-}
-
-extension DataPickerView {
-    
-    func setup() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        self.addGestureRecognizer(gesture);
-    }
-    
     func style() {
-        self.translatesAutoresizingMaskIntoConstraints = false;
-        self.backgroundColor = .systemTeal;
         
-        self.stackView.translatesAutoresizingMaskIntoConstraints = false;
-        self.stackView.axis = .horizontal;
-        self.stackView.distribution = .fillProportionally
+        self.layer.borderColor = UIColor.gray.cgColor;
+        self.layer.borderWidth = 0.6;
+        self.layer.cornerRadius = 4;
+        self.clipsToBounds = false;
+        
         
         self.arrowImageView.image = UIImage(systemName: "arrow.right")?.withRenderingMode(.alwaysTemplate);
         self.arrowImageView.tintColor = .blue;
+        self.arrowImageView.translatesAutoresizingMaskIntoConstraints = false;
         
-        self.optionLabel.text = NSLocalizedString("chooseOption", comment: "Picker placeholder");
+        self.placeholderLabel.text = self.placeholder
+        self.placeholderLabel.translatesAutoresizingMaskIntoConstraints = false;
+        
+        self.selectedOptionLabel.translatesAutoresizingMaskIntoConstraints = false;
+        self.selectedOptionLabel.isHidden = true;
+        self.selectedOptionLabel.text = "";
         
     }
     
     func layout() {
-        self.stackView.addArrangedSubview(self.optionLabel);
-        self.stackView.addArrangedSubview(self.arrowImageView);
-        self.addSubview(self.stackView);
+        
+        self.addSubview(arrowImageView)
+        self.addSubview(placeholderLabel)
+        self.addSubview(selectedOptionLabel)
         
         NSLayoutConstraint.activate([
-            self.stackView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            self.stackView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            self.stackView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.arrowImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.arrowImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -4),
+            
+            self.placeholderLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.placeholderLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4),
+            
+            self.selectedOptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
+            self.selectedOptionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4)
         ]);
+        
     }
+    
+    func setupGestures() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.addGestureRecognizer(gesture);
+    }
+
 }
 
+// MARK: - Gestures
 extension DataPickerView {
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         print("DataPickerView - Open Picker Action");
@@ -88,15 +105,37 @@ extension DataPickerView {
     }
 }
 
+// MARK: - Animations
+extension DataPickerView {
+    func movePlaceholderUp() {
+        UIView.animate(withDuration: 0.25) {
+            self.placeholderLabel.transform = CGAffineTransform(scaleX: 0.80, y: 0.80).translatedBy(x: -18, y: -15)
+        }
+    }
+    
+    func movePlaceholderDown() {
+        UIView.animate(withDuration: 0.25) {
+            self.placeholderLabel.transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: 0)
+        }
+    }
+}
+
+// MARK: DataPickerView
 extension DataPickerView : DataPickerViewControllerDelegate {
     func didSelectOption(_ option: String, atIndex: Int) {
         
-        self.optionLabel.text = option;
+        // TODO: Animate Option
+        self.movePlaceholderUp()
+        
+        self.selectedOptionLabel.text = option;
+        self.selectedOptionLabel.isHidden = false;
+        
+        // self.placeholderLabel.text = option;
         self.selectedIndex = atIndex;
         
         self.delegate?.didSelectPicker(self, withOption: option);
         self.pickerViewController.dismiss(animated: true);
-
+        
         
     }
 }
