@@ -98,7 +98,7 @@ fileprivate extension TextField {
     func movePlaceholderUp() {
         
         UIView.animate(withDuration: 0.25) {
-            self.placeholderLabel.transform = CGAffineTransform(scaleX: 0.80, y: 0.80).translatedBy(x: -40, y: -10)
+            self.placeholderLabel.transform = CGAffineTransform(scaleX: 0.80, y: 0.80).translatedBy(x: -45, y: -15)
         }
         
     }

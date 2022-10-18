@@ -57,7 +57,7 @@ class AddArtistViewController : BaseViewController {
             self.artistTextField.topAnchor.constraint(equalTo: self.genrePicker.bottomAnchor, constant: 8),
             self.artistTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.artistTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
-            self.artistTextField.heightAnchor.constraint(equalToConstant: 40),
+            self.artistTextField.heightAnchor.constraint(equalToConstant: 55),
             
             self.saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.saveButton.heightAnchor.constraint(equalToConstant: 50),
