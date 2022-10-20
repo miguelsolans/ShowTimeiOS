@@ -11,6 +11,7 @@
 		8B0CDC2B287F7BE60042EA5B /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0CDC2A287F7BE60042EA5B /* ArtistModel.swift */; };
 		8B0CDC2E287F7DB00042EA5B /* ArtistOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0CDC2D287F7DB00042EA5B /* ArtistOutput.swift */; };
 		8B0CDC30287F7F2E0042EA5B /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0CDC2F287F7F2E0042EA5B /* ArtistsViewModel.swift */; };
+		8B14F6EB2902086900224F91 /* KCoreUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14F6EA2902086900224F91 /* KCoreUI.swift */; };
 		8B207C0F287CE6CD00689077 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C0E287CE6CD00689077 /* NetworkManager.swift */; };
 		8B207C12287CE75400689077 /* GenreOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C11287CE75400689077 /* GenreOutput.swift */; };
 		8B207C15287CE7F600689077 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C14287CE7F600689077 /* BaseModel.swift */; };
@@ -60,6 +61,7 @@
 		8B0CDC2A287F7BE60042EA5B /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		8B0CDC2D287F7DB00042EA5B /* ArtistOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistOutput.swift; sourceTree = "<group>"; };
 		8B0CDC2F287F7F2E0042EA5B /* ArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModel.swift; sourceTree = "<group>"; };
+		8B14F6EA2902086900224F91 /* KCoreUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCoreUI.swift; sourceTree = "<group>"; };
 		8B207C0E287CE6CD00689077 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8B207C11287CE75400689077 /* GenreOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreOutput.swift; sourceTree = "<group>"; };
 		8B207C14287CE7F600689077 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				8B9CD63028A869A500F5F6E5 /* DatePicker */,
 				8B9CD62F28A8698400F5F6E5 /* TextField */,
 				8B207C1C287CEB9500689077 /* DataPicker */,
+				8B14F6EA2902086900224F91 /* KCoreUI.swift */,
 			);
 			path = CoreUI;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				8BBFA1A428F1E30F00F18E51 /* BaseViewModel.swift in Sources */,
 				8BBFA1D428FB83A500F18E51 /* VenueViewModel.swift in Sources */,
 				8BBFA1B128F2119E00F18E51 /* MenuItems.swift in Sources */,
+				8B14F6EB2902086900224F91 /* KCoreUI.swift in Sources */,
 				8B0CDC2B287F7BE60042EA5B /* ArtistModel.swift in Sources */,
 				8B207C12287CE75400689077 /* GenreOutput.swift in Sources */,
 				8BBFA1AB28F1E55900F18E51 /* ConcertOutput.swift in Sources */,
