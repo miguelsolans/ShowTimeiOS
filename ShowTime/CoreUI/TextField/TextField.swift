@@ -26,7 +26,7 @@ class TextField : UIView {
         
         self.setupGestures();
         self.style();
-        self.layout();
+        self.layout(); 
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -120,7 +120,6 @@ extension TextField : UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // TODO: Animate placeholder
         self.movePlaceholderUp();
     }
     

@@ -13,19 +13,18 @@ class AddConcertViewController : BaseViewController {
     let venuesViewModel = VenueViewModel();
     let concertViewModel = ConcertViewModel();
     
-    let formStackView = UIStackView();
-    
-    let artistPickerView = DataPickerView();
-    let venuePickerView = DataPickerView();
+    var artistPickerView: DataPickerView!;
+    var venuePickerView: DataPickerView!;
     let datePickerView = DatePicker();
     
     let saveButton = UIButton(type: .system)
     
     override func viewDidLoad() {
+        self.datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
+        self.artistPickerView = DataPickerView(target: self, placeholder: "Artist");
+        self.venuePickerView = DataPickerView(target: self, placeholder: "Venue");
+        
         super.viewDidLoad();
-        
-        datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
-        
         
         self.artistsViewModel.delegate = self;
         self.artistsViewModel.getArtists();
@@ -38,11 +37,6 @@ class AddConcertViewController : BaseViewController {
     
     
     override func style() {
-        
-        self.formStackView.translatesAutoresizingMaskIntoConstraints = false;
-        self.formStackView.axis = .vertical;
-        self.formStackView.distribution = .equalSpacing
-        self.formStackView.spacing = 10;
         
         // Form elements
         self.artistPickerView.translatesAutoresizingMaskIntoConstraints = false;
@@ -58,18 +52,27 @@ class AddConcertViewController : BaseViewController {
     
     override func layout() {
         
-        self.view.addSubview(formStackView);
+        self.view.addSubview(artistPickerView);
+        self.view.addSubview(venuePickerView);
+        self.view.addSubview(datePickerView);
         self.view.addSubview(saveButton)
         
-        formStackView.addArrangedSubview(artistPickerView);
-        formStackView.addArrangedSubview(venuePickerView);
-        formStackView.addArrangedSubview(datePickerView);
         
         NSLayoutConstraint.activate([
-            self.formStackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.formStackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
-            self.formStackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
-            self.formStackView.bottomAnchor.constraint(equalTo: self.saveButton.topAnchor),
+            self.artistPickerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.artistPickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.artistPickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.artistPickerView.heightAnchor.constraint(equalToConstant: 55),
+            
+            self.venuePickerView.topAnchor.constraint(equalTo: self.artistPickerView.bottomAnchor, constant: 8),
+            self.venuePickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.venuePickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.venuePickerView.heightAnchor.constraint(equalToConstant: 55),
+            
+            self.datePickerView.topAnchor.constraint(equalTo: self.venuePickerView.bottomAnchor, constant: 8),
+            self.datePickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.datePickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.datePickerView.heightAnchor.constraint(equalToConstant: 55),
             
             self.saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.saveButton.heightAnchor.constraint(equalToConstant: 50),
@@ -107,11 +110,12 @@ extension AddConcertViewController : ArtistsViewModelDelegate {
     func artistsOutputDidChange(_ viewModel: ArtistsViewModel) {
         print("ViewModel - Artists Output didChange");
         
-        var options: [String] = [];
+        var options: [DataPickerOption] = [];
         
         if let safeArtists = viewModel.artistsOutput {
             for artist in safeArtists {
-                options.append(artist.name)
+                let option = DataPickerOption(id: artist.id, label: artist.name)
+                options.append(option)
             }
         }
         
@@ -139,11 +143,12 @@ extension AddConcertViewController : VenueViewModelDelegate {
     func venuesOutputDidChange(_ viewModel: VenueViewModel) {
         print("ViewModel - Venues Output didChange");
         
-        var options: [String] = [];
+        var options: [DataPickerOption] = [];
         
         if let safeVenues = viewModel.venuesOutput {
             for venue in safeVenues {
-                options.append(venue.name)
+                let option = DataPickerOption(id: venue.id, label: venue.name)
+                options.append(option)
             }
         }
         

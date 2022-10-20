@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct DataPickerOption {
+    let id: String
+    let label: String
+}
