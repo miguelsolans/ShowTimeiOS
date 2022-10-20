@@ -68,11 +68,12 @@ extension ManageArtistsViewController : GenresViewModelDelegate {
     func genresOutputDidChange(_ viewModel: GenresViewModel) {
         print("ViewModel - Genres Output didChange");
         
-        var options: [String] = [];
+        var options: [DataPickerOption] = [];
         
         if let safeGenres = viewModel.genresOutput {
             for genre in safeGenres {
-                options.append(genre.subGenre)
+                let option = DataPickerOption(id: genre.id, label: genre.subGenre)
+                options.append(option)
             }
         }
         
@@ -106,8 +107,8 @@ extension ManageArtistsViewController : ArtistsViewModelDelegate {
 
 
 extension ManageArtistsViewController : DataPickerViewDelegate {
-    func didSelectPicker(_ pickerView: DataPickerView, withOption option: String) {
-        self.artistsViewModel.getArtistsByGenre(option);
+    func didSelectPicker(_ pickerView: DataPickerView, withOption option: DataPickerOption) {
+        self.artistsViewModel.getArtistsByGenre(option.label);
     }
 }
 

@@ -73,7 +73,7 @@ class AddArtistViewController : BaseViewController {
 
 // MARK: - Picker Delegate Methods
 extension AddArtistViewController : DataPickerViewDelegate {
-    func didSelectPicker(_ pickerView: DataPickerView, withOption option: String) {
+    func didSelectPicker(_ pickerView: DataPickerView, withOption option: DataPickerOption) {
         //
     }
 }
@@ -81,11 +81,12 @@ extension AddArtistViewController : DataPickerViewDelegate {
 // MARK: - Genres ViewModel Delegates
 extension AddArtistViewController : GenresViewModelDelegate {
     func genresOutputDidChange(_ viewModel: GenresViewModel) {
-        var options: [String] = [];
+        var options: [DataPickerOption] = [];
         
         if let safeGenres = viewModel.genresOutput {
             for genre in safeGenres {
-                options.append(genre.subGenre)
+                let option = DataPickerOption(id: genre.id, label: genre.subGenre);
+                options.append(option)
             }
         }
         
