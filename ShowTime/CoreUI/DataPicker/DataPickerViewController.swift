@@ -8,16 +8,16 @@
 import UIKit
 
 protocol DataPickerViewControllerDelegate : AnyObject {
-    func didSelectOption(_ option: String, atIndex: Int);
+    func didSelectOption(_ option: DataPickerOption, atIndex: Int);
 }
 
 class DataPickerViewController: UIViewController {
     
     weak var delegate: DataPickerViewControllerDelegate?
     fileprivate let tableView = UITableView();
-    let options: [String];
+    let options: [DataPickerOption];
 
-    init(options: [String]) {
+    init(options: [DataPickerOption]) {
         
         self.options = options
         super.init(nibName: nil, bundle: nil);
@@ -65,7 +65,7 @@ extension DataPickerViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell();
         
-        cell.textLabel?.text = self.options[ indexPath.row ];
+        cell.textLabel?.text = self.options[ indexPath.row ].label;
         
         return cell;
     }

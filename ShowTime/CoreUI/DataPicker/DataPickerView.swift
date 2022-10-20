@@ -8,28 +8,26 @@
 import UIKit
 
 protocol DataPickerViewDelegate : AnyObject {
-    func didSelectPicker(_ pickerView: DataPickerView, withOption option: String);
+    func didSelectPicker(_ pickerView: DataPickerView, withOption option: DataPickerOption);
 }
 
 class DataPickerView: UIView {
-    
+
+    // ViewControllers and Delegates
     weak var rootViewController: UIViewController!
     weak var delegate: DataPickerViewDelegate?
     var pickerViewController = DataPickerViewController(options: []);
 
-    // ViewControllers
     
     // Properties
     var placeholder: String?
     var selectedIndex: Int?
-    var options: [String] = [];
+    var options: [DataPickerOption]?;
     
     // UI Components
     let arrowImageView = UIImageView();
     let placeholderLabel = UILabel();
-    
     let selectedOptionLabel = UILabel();
-    
     
     
     required init(target: UIViewController, placeholder: String){
@@ -54,7 +52,7 @@ class DataPickerView: UIView {
         self.clipsToBounds = false;
         
         
-        self.arrowImageView.image = UIImage(systemName: "arrow.right")?.withRenderingMode(.alwaysTemplate);
+        self.arrowImageView.image = UIImage(systemName: KCoreUI.Symbols.ArrowRight)?.withRenderingMode(.alwaysTemplate);
         self.arrowImageView.tintColor = .blue;
         self.arrowImageView.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -75,13 +73,15 @@ class DataPickerView: UIView {
         
         NSLayoutConstraint.activate([
             self.arrowImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.arrowImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -4),
+            self.arrowImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -14),
             
             self.placeholderLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             self.placeholderLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4),
+            self.placeholderLabel.rightAnchor.constraint(lessThanOrEqualTo: self.arrowImageView.leftAnchor, constant: 4),
             
             self.selectedOptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
-            self.selectedOptionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4)
+            self.selectedOptionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
+            self.placeholderLabel.rightAnchor.constraint(lessThanOrEqualTo: self.arrowImageView.leftAnchor, constant: 4)
         ]);
         
     }
@@ -97,7 +97,10 @@ class DataPickerView: UIView {
 extension DataPickerView {
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         print("DataPickerView - Open Picker Action");
-        self.pickerViewController = DataPickerViewController(options: self.options);
+        
+        guard let options = self.options else { return }
+        
+        self.pickerViewController = DataPickerViewController(options: options);
         
         self.pickerViewController.delegate = self;
         
@@ -109,12 +112,14 @@ extension DataPickerView {
 extension DataPickerView {
     func movePlaceholderUp() {
         UIView.animate(withDuration: 0.25) {
-            self.placeholderLabel.transform = CGAffineTransform(scaleX: 0.80, y: 0.80).translatedBy(x: -18, y: -15)
+            self.placeholderLabel.textColor = UIColor(named: KCoreUI.Colors.AnimatedPlaceholderTextColor);
+            self.placeholderLabel.transform = CGAffineTransform(scaleX: 0.80, y: 0.80).translatedBy(x: 0, y: -15)
         }
     }
     
     func movePlaceholderDown() {
         UIView.animate(withDuration: 0.25) {
+            self.placeholderLabel.textColor = UIColor(named: KCoreUI.Colors.PlaceholderTextColor);
             self.placeholderLabel.transform = CGAffineTransform(scaleX: 1, y: 1).translatedBy(x: 0, y: 0)
         }
     }
@@ -122,15 +127,12 @@ extension DataPickerView {
 
 // MARK: DataPickerView
 extension DataPickerView : DataPickerViewControllerDelegate {
-    func didSelectOption(_ option: String, atIndex: Int) {
+    func didSelectOption(_ option: DataPickerOption, atIndex: Int) {
         
-        // TODO: Animate Option
         self.movePlaceholderUp()
         
-        self.selectedOptionLabel.text = option;
+        self.selectedOptionLabel.text = option.label;
         self.selectedOptionLabel.isHidden = false;
-        
-        // self.placeholderLabel.text = option;
         self.selectedIndex = atIndex;
         
         self.delegate?.didSelectPicker(self, withOption: option);
