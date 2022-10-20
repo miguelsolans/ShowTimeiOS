@@ -120,7 +120,6 @@ extension TextField : UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // TODO: Animate placeholder
         self.movePlaceholderUp();
     }
     
