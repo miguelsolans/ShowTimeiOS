@@ -16,7 +16,9 @@ class DataPickerView: UIView {
     // ViewControllers and Delegates
     weak var rootViewController: UIViewController!
     weak var delegate: DataPickerViewDelegate?
-    var pickerViewController = DataPickerViewController(options: []);
+    // var pickerViewController = DataPickerViewController(options: []);
+    var pickerViewController: DataPickerViewController;
+    fileprivate var searchbar: Bool
 
     
     // Properties
@@ -30,7 +32,9 @@ class DataPickerView: UIView {
     let selectedOptionLabel = UILabel();
     
     
-    required init(target: UIViewController, placeholder: String){
+    required init(target: UIViewController, placeholder: String, withSearchBar searchbar: Bool){
+        self.searchbar = searchbar
+        self.pickerViewController = DataPickerViewController(options: [], andSearch: searchbar)
         self.placeholder = placeholder;
         self.rootViewController = target;
         super.init(frame: CGRect.zero)
@@ -100,7 +104,7 @@ extension DataPickerView {
         
         guard let options = self.options else { return }
         
-        self.pickerViewController = DataPickerViewController(options: options);
+        self.pickerViewController = DataPickerViewController(options: options, andSearch: self.searchbar);
         
         self.pickerViewController.delegate = self;
         
