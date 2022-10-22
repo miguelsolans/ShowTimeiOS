@@ -12,8 +12,10 @@ class AddArtistViewController : BaseViewController {
     
     let genresViewModel = GenresViewModel();
     let artistViewModel = ArtistsViewModel();
+    let genericTableViewModel = GenericTableViewModel();
     
     var genrePicker: DataPickerView!
+    var countryPicker: DataPickerView!
     
     let artistTextField = TextField(placeholder: "Artist Name");
     let saveButton = UIButton(type: .system);
@@ -25,6 +27,9 @@ class AddArtistViewController : BaseViewController {
         self.genresViewModel.getGenres();
         
         self.artistViewModel.delegate = self;
+        self.genericTableViewModel.delegate = self;
+        self.genericTableViewModel.getGenericTable(GenericTableConstants.Countries)
+        
     }
     
     override func style() {
@@ -32,6 +37,10 @@ class AddArtistViewController : BaseViewController {
         
         self.genrePicker = DataPickerView(target: self, placeholder: "Genre")
         self.genrePicker.translatesAutoresizingMaskIntoConstraints = false;
+        
+        self.countryPicker = DataPickerView(target: self, placeholder: "Countries");
+        self.countryPicker.translatesAutoresizingMaskIntoConstraints = false;
+        
         self.artistTextField.translatesAutoresizingMaskIntoConstraints = false;
         
         self.saveButton.setTitle(NSLocalizedString("save", comment: "Action title"), for: [])
@@ -46,6 +55,7 @@ class AddArtistViewController : BaseViewController {
     override func layout() {
         
         self.view.addSubview(genrePicker);
+        self.view.addSubview(countryPicker);
         self.view.addSubview(artistTextField);
         self.view.addSubview(saveButton)
         
@@ -56,7 +66,12 @@ class AddArtistViewController : BaseViewController {
             self.genrePicker.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             self.genrePicker.heightAnchor.constraint(equalToConstant: 55),
             
-            self.artistTextField.topAnchor.constraint(equalTo: self.genrePicker.bottomAnchor, constant: 8),
+            self.countryPicker.topAnchor.constraint(equalTo: self.genrePicker.bottomAnchor, constant: 8),
+            self.countryPicker.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.countryPicker.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.countryPicker.heightAnchor.constraint(equalToConstant: 55),
+            
+            self.artistTextField.topAnchor.constraint(equalTo: self.countryPicker.bottomAnchor, constant: 8),
             self.artistTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.artistTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
             self.artistTextField.heightAnchor.constraint(equalToConstant: 55),
@@ -120,6 +135,13 @@ extension AddArtistViewController : ArtistsViewModelDelegate {
     
 }
 
+// MARK: - Generic Table ViewModel Delegate Methods
+extension AddArtistViewController : GenericTableViewModelDelegate {
+    func genericTableOutputDidChange(_ viewModel: GenericTableViewModel) {
+        self.countryPicker.options = viewModel.convertOptionsToPicker();
+    }
+}
+
 // MARK: - Actions
 extension AddArtistViewController {
     
@@ -127,10 +149,10 @@ extension AddArtistViewController {
         // Save Artist
         
         if(self.isValidForm()) {
-            if let selectedIndex = self.genrePicker.selectedIndex {
+            if let selectedIndex = self.genrePicker.selectedIndex, let countryIndex = self.countryPicker.selectedIndex {
                 
-                if let genre = self.genresViewModel.getGenreByIndex(selectedIndex) {
-                    let artist = ArtistInput(name: self.artistTextField.getText(), genreName: genre.subGenre);
+                if let genre = self.genresViewModel.getGenreByIndex(selectedIndex), let country = self.genericTableViewModel.getItemByIndex(countryIndex) {
+                    let artist = ArtistInput(name: self.artistTextField.getText(), genreName: genre.subGenre, country: country.id);
                     self.artistViewModel.createArtist(artist)
                 } else {
                     self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Error Description"));
@@ -156,3 +178,4 @@ extension AddArtistViewController {
         return self.validateArtistName()
     }
 }
+
