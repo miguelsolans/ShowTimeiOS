@@ -10,4 +10,5 @@ import Foundation
 struct ArtistInput : Encodable {
     let name: String
     let genreName: String
+    let country: String
 }

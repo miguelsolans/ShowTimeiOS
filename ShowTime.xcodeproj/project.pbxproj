@@ -12,6 +12,10 @@
 		8B0CDC2E287F7DB00042EA5B /* ArtistOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0CDC2D287F7DB00042EA5B /* ArtistOutput.swift */; };
 		8B0CDC30287F7F2E0042EA5B /* ArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0CDC2F287F7F2E0042EA5B /* ArtistsViewModel.swift */; };
 		8B14F6EB2902086900224F91 /* KCoreUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14F6EA2902086900224F91 /* KCoreUI.swift */; };
+		8B14F6EF290422FC00224F91 /* GenericTableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14F6EE290422FC00224F91 /* GenericTableModel.swift */; };
+		8B14F6F12904230900224F91 /* GenericTableOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14F6F02904230900224F91 /* GenericTableOutput.swift */; };
+		8B14F6F3290424C600224F91 /* GenericTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14F6F2290424C600224F91 /* GenericTableViewModel.swift */; };
+		8B14F6F5290425A600224F91 /* GenericTableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14F6F4290425A600224F91 /* GenericTableConstants.swift */; };
 		8B207C0F287CE6CD00689077 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C0E287CE6CD00689077 /* NetworkManager.swift */; };
 		8B207C12287CE75400689077 /* GenreOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C11287CE75400689077 /* GenreOutput.swift */; };
 		8B207C15287CE7F600689077 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C14287CE7F600689077 /* BaseModel.swift */; };
@@ -62,6 +66,10 @@
 		8B0CDC2D287F7DB00042EA5B /* ArtistOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistOutput.swift; sourceTree = "<group>"; };
 		8B0CDC2F287F7F2E0042EA5B /* ArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModel.swift; sourceTree = "<group>"; };
 		8B14F6EA2902086900224F91 /* KCoreUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KCoreUI.swift; sourceTree = "<group>"; };
+		8B14F6EE290422FC00224F91 /* GenericTableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableModel.swift; sourceTree = "<group>"; };
+		8B14F6F02904230900224F91 /* GenericTableOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableOutput.swift; sourceTree = "<group>"; };
+		8B14F6F2290424C600224F91 /* GenericTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewModel.swift; sourceTree = "<group>"; };
+		8B14F6F4290425A600224F91 /* GenericTableConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableConstants.swift; sourceTree = "<group>"; };
 		8B207C0E287CE6CD00689077 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8B207C11287CE75400689077 /* GenreOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreOutput.swift; sourceTree = "<group>"; };
 		8B207C14287CE7F600689077 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
@@ -131,6 +139,24 @@
 			path = Artists;
 			sourceTree = "<group>";
 		};
+		8B14F6EC290422DF00224F91 /* GenericTable */ = {
+			isa = PBXGroup;
+			children = (
+				8B14F6F2290424C600224F91 /* GenericTableViewModel.swift */,
+			);
+			path = GenericTable;
+			sourceTree = "<group>";
+		};
+		8B14F6ED290422EE00224F91 /* GenericTable */ = {
+			isa = PBXGroup;
+			children = (
+				8B14F6EE290422FC00224F91 /* GenericTableModel.swift */,
+				8B14F6F02904230900224F91 /* GenericTableOutput.swift */,
+				8B14F6F4290425A600224F91 /* GenericTableConstants.swift */,
+			);
+			path = GenericTable;
+			sourceTree = "<group>";
+		};
 		8B207C09287CE5F000689077 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +173,7 @@
 		8B207C0A287CE5FB00689077 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8B14F6ED290422EE00224F91 /* GenericTable */,
 				8BBFA1CD28FB829900F18E51 /* Venues */,
 				8BBFA1A928F1E4E300F18E51 /* Concert */,
 				8B207C10287CE74400689077 /* Genres */,
@@ -361,6 +388,7 @@
 		8BC7E31C287CE5D0008CE4A8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8B14F6EC290422DF00224F91 /* GenericTable */,
 				8BBFA1CE28FB82A900F18E51 /* Venues */,
 				8BBFA1A228F1E2DA00F18E51 /* Concerts */,
 				8B207C18287CE92800689077 /* Genres */,
@@ -447,7 +475,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B207C1A287CE93B00689077 /* GenresViewModel.swift in Sources */,
+				8B14F6F12904230900224F91 /* GenericTableOutput.swift in Sources */,
 				8B207C15287CE7F600689077 /* BaseModel.swift in Sources */,
+				8B14F6EF290422FC00224F91 /* GenericTableModel.swift in Sources */,
 				8B0CDC29287F72820042EA5B /* BaseViewController.swift in Sources */,
 				8BBFA1CC28FB7A5D00F18E51 /* Date.swift in Sources */,
 				8B207C17287CE81900689077 /* GenreModel.swift in Sources */,
@@ -474,6 +504,7 @@
 				8BBFA1BF28F36F6700F18E51 /* AddArtistViewController.swift in Sources */,
 				8BBFA1C328F8B42900F18E51 /* ButtonExtension.swift in Sources */,
 				8BBFA1C628F8B58700F18E51 /* TextField.swift in Sources */,
+				8B14F6F3290424C600224F91 /* GenericTableViewModel.swift in Sources */,
 				8BBFA1C828F8CB7600F18E51 /* AddConcertViewController.swift in Sources */,
 				8BC7E309287CE5B2008CE4A8 /* AppDelegate.swift in Sources */,
 				8BC7E30B287CE5B2008CE4A8 /* SceneDelegate.swift in Sources */,
@@ -481,6 +512,7 @@
 				8BBFA1CA28FB05B000F18E51 /* DatePicker.swift in Sources */,
 				8BBFA1A628F1E46900F18E51 /* ConcertViewModel.swift in Sources */,
 				8BAD0B5128A86EFD00F7B8BA /* TabBarViewController.swift in Sources */,
+				8B14F6F5290425A600224F91 /* GenericTableConstants.swift in Sources */,
 				8BBFA1D228FB82C000F18E51 /* VenueOutput.swift in Sources */,
 				8B0CDC30287F7F2E0042EA5B /* ArtistsViewModel.swift in Sources */,
 				8BBFA1D628FC2F3A00F18E51 /* ConcertInput.swift in Sources */,
