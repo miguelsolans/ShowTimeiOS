@@ -16,6 +16,7 @@ class AddConcertViewController : BaseViewController {
     var artistPickerView: DataPickerView!;
     var venuePickerView: DataPickerView!;
     let datePickerView = DatePicker();
+    let notesTextField = TextField(placeholder: "Additional Notes")
     
     let saveButton = UIButton(type: .system)
     
@@ -42,6 +43,7 @@ class AddConcertViewController : BaseViewController {
         self.artistPickerView.translatesAutoresizingMaskIntoConstraints = false;
         self.venuePickerView.translatesAutoresizingMaskIntoConstraints = false;
         self.datePickerView.translatesAutoresizingMaskIntoConstraints = false;
+        self.notesTextField.translatesAutoresizingMaskIntoConstraints = false;
         
         // Save Button
         self.saveButton.translatesAutoresizingMaskIntoConstraints = false;
@@ -55,6 +57,7 @@ class AddConcertViewController : BaseViewController {
         self.view.addSubview(artistPickerView);
         self.view.addSubview(venuePickerView);
         self.view.addSubview(datePickerView);
+        self.view.addSubview(notesTextField);
         self.view.addSubview(saveButton)
         
         
@@ -72,7 +75,11 @@ class AddConcertViewController : BaseViewController {
             self.datePickerView.topAnchor.constraint(equalTo: self.venuePickerView.bottomAnchor, constant: 8),
             self.datePickerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
             self.datePickerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
-            self.datePickerView.heightAnchor.constraint(equalToConstant: 55),
+            
+            self.notesTextField.topAnchor.constraint(equalTo: self.datePickerView.bottomAnchor, constant: 8),
+            self.notesTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 8),
+            self.notesTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -8),
+            self.notesTextField.heightAnchor.constraint(equalToConstant: 55),
             
             self.saveButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             self.saveButton.heightAnchor.constraint(equalToConstant: 50),
@@ -91,7 +98,8 @@ extension AddConcertViewController {
         if let selectedArtist = self.artistPickerView.selectedOption, let selectedVenue = self.venuePickerView.selectedOption {
             let concert = ConcertInput(artistName: selectedArtist.label,
                                        date: self.datePickerView.getFormattedDate(),
-                                       venueId: selectedVenue.id);
+                                       venueId: selectedVenue.id,
+                                       notes: self.notesTextField.getText());
             
             self.concertViewModel.addNew(concert: concert);
             

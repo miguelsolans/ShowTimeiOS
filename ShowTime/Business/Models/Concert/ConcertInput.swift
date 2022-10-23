@@ -11,4 +11,5 @@ struct ConcertInput : Encodable {
     let artistName: String
     let date: String
     let venueId: String
+    let notes: String
 }
