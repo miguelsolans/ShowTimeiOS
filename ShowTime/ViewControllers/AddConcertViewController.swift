@@ -21,8 +21,8 @@ class AddConcertViewController : BaseViewController {
     
     override func viewDidLoad() {
         self.datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
-        self.artistPickerView = DataPickerView(target: self, placeholder: "Artist");
-        self.venuePickerView = DataPickerView(target: self, placeholder: "Venue");
+        self.artistPickerView = DataPickerView(target: self, placeholder: "Artist", withSearchBar: true);
+        self.venuePickerView = DataPickerView(target: self, placeholder: "Venue", withSearchBar: true);
         
         super.viewDidLoad();
         
@@ -88,15 +88,12 @@ class AddConcertViewController : BaseViewController {
 extension AddConcertViewController {
     @objc func saveButtonTapped() {
         
-        if let artistIndex = self.artistPickerView.selectedIndex, let venueIndex = self.venuePickerView.selectedIndex {
+        if let selectedArtist = self.artistPickerView.selectedOption, let selectedVenue = self.venuePickerView.selectedOption {
+            let concert = ConcertInput(artistName: selectedArtist.label,
+                                       date: self.datePickerView.getFormattedDate(),
+                                       venueId: selectedVenue.id);
             
-            if let artist = self.artistsViewModel.getArtistByIndex(artistIndex), let venue = self.venuesViewModel.getVenueByIndex(venueIndex) {
-                let concert = ConcertInput(artistName: artist.name,
-                                           date: self.datePickerView.getFormattedDate(),
-                                           venueId: venue.id);
-                
-                self.concertViewModel.addNew(concert: concert);
-            }
+            self.concertViewModel.addNew(concert: concert);
             
         } else {
             self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Invalid Data"))

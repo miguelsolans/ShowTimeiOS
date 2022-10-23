@@ -35,10 +35,10 @@ class AddArtistViewController : BaseViewController {
     override func style() {
         self.title = NSLocalizedString("newArtist", comment: "Page title")
         
-        self.genrePicker = DataPickerView(target: self, placeholder: "Genre")
+        self.genrePicker = DataPickerView(target: self, placeholder: "Genre", withSearchBar: true)
         self.genrePicker.translatesAutoresizingMaskIntoConstraints = false;
         
-        self.countryPicker = DataPickerView(target: self, placeholder: "Countries");
+        self.countryPicker = DataPickerView(target: self, placeholder: "Countries", withSearchBar: true);
         self.countryPicker.translatesAutoresizingMaskIntoConstraints = false;
         
         self.artistTextField.translatesAutoresizingMaskIntoConstraints = false;
@@ -149,14 +149,9 @@ extension AddArtistViewController {
         // Save Artist
         
         if(self.isValidForm()) {
-            if let selectedIndex = self.genrePicker.selectedIndex, let countryIndex = self.countryPicker.selectedIndex {
-                
-                if let genre = self.genresViewModel.getGenreByIndex(selectedIndex), let country = self.genericTableViewModel.getItemByIndex(countryIndex) {
-                    let artist = ArtistInput(name: self.artistTextField.getText(), genreName: genre.subGenre, country: country.id);
-                    self.artistViewModel.createArtist(artist)
-                } else {
-                    self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("invalidData", comment: "Error Description"));
-                }
+            if let selectedGenre = self.genrePicker.selectedOption, let selectedCountry = self.countryPicker.selectedOption {
+                let artist = ArtistInput(name: self.artistTextField.getText(), genreName: selectedGenre.label, country: selectedCountry.id);
+                self.artistViewModel.createArtist(artist)
             } else {
                 self.showAlertWithTitle(NSLocalizedString("error", comment: "Error Title"), andMessage: NSLocalizedString("genreMissingSelection", comment: "Missing Selection"));
             }
