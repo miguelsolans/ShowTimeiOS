@@ -23,7 +23,7 @@ class DataPickerView: UIView {
     
     // Properties
     var placeholder: String?
-    var selectedIndex: Int?
+    var selectedOption: DataPickerOption?
     var options: [DataPickerOption]?;
     
     // UI Components
@@ -131,14 +131,14 @@ extension DataPickerView {
 
 // MARK: DataPickerView
 extension DataPickerView : DataPickerViewControllerDelegate {
-    func didSelectOption(_ option: DataPickerOption, atIndex: Int) {
+    func didSelectOption(_ option: DataPickerOption) {
         
         self.movePlaceholderUp()
         
         self.selectedOptionLabel.text = option.label;
         self.selectedOptionLabel.isHidden = false;
-        self.selectedIndex = atIndex;
         
+        self.selectedOption = option;
         self.delegate?.didSelectPicker(self, withOption: option);
         self.pickerViewController.dismiss(animated: true);
         

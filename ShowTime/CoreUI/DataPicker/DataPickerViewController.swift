@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DataPickerViewControllerDelegate : AnyObject {
-    func didSelectOption(_ option: DataPickerOption, atIndex: Int);
+    func didSelectOption(_ option: DataPickerOption);
 }
 
 class DataPickerViewController: UIViewController {
@@ -90,13 +90,7 @@ extension DataPickerViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true);
         
-        if(self.searching) {
-            self.delegate?.didSelectOption(self.searchResults[ indexPath.row ], atIndex: indexPath.row)
-        } else {
-            self.delegate?.didSelectOption(self.options[ indexPath.row ], atIndex: indexPath.row)
-        }
-        
-        
+        self.delegate?.didSelectOption(self.searching ? self.searchResults[ indexPath.row ] : self.options[ indexPath.row ]);
         
     }
     
