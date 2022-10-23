@@ -17,7 +17,7 @@ class ManageArtistsViewController: BaseViewController {
     let tableView = UITableView()
     
     override func viewDidLoad() {
-        self.pickerView = DataPickerView(target: self, placeholder: "Genre")
+        self.pickerView = DataPickerView(target: self, placeholder: "Genre", withSearchBar: true)
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.

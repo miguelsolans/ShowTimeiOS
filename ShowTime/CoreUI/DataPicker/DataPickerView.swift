@@ -16,12 +16,14 @@ class DataPickerView: UIView {
     // ViewControllers and Delegates
     weak var rootViewController: UIViewController!
     weak var delegate: DataPickerViewDelegate?
-    var pickerViewController = DataPickerViewController(options: []);
+    // var pickerViewController = DataPickerViewController(options: []);
+    var pickerViewController: DataPickerViewController;
+    fileprivate var searchbar: Bool
 
     
     // Properties
     var placeholder: String?
-    var selectedIndex: Int?
+    var selectedOption: DataPickerOption?
     var options: [DataPickerOption]?;
     
     // UI Components
@@ -30,7 +32,9 @@ class DataPickerView: UIView {
     let selectedOptionLabel = UILabel();
     
     
-    required init(target: UIViewController, placeholder: String){
+    required init(target: UIViewController, placeholder: String, withSearchBar searchbar: Bool){
+        self.searchbar = searchbar
+        self.pickerViewController = DataPickerViewController(options: [], andSearch: searchbar)
         self.placeholder = placeholder;
         self.rootViewController = target;
         super.init(frame: CGRect.zero)
@@ -100,7 +104,7 @@ extension DataPickerView {
         
         guard let options = self.options else { return }
         
-        self.pickerViewController = DataPickerViewController(options: options);
+        self.pickerViewController = DataPickerViewController(options: options, andSearch: self.searchbar);
         
         self.pickerViewController.delegate = self;
         
@@ -127,14 +131,14 @@ extension DataPickerView {
 
 // MARK: DataPickerView
 extension DataPickerView : DataPickerViewControllerDelegate {
-    func didSelectOption(_ option: DataPickerOption, atIndex: Int) {
+    func didSelectOption(_ option: DataPickerOption) {
         
         self.movePlaceholderUp()
         
         self.selectedOptionLabel.text = option.label;
         self.selectedOptionLabel.isHidden = false;
-        self.selectedIndex = atIndex;
         
+        self.selectedOption = option;
         self.delegate?.didSelectPicker(self, withOption: option);
         self.pickerViewController.dismiss(animated: true);
         
