@@ -30,6 +30,9 @@ class AddArtistViewController : BaseViewController {
         self.genericTableViewModel.delegate = self;
         self.genericTableViewModel.getGenericTable(GenericTableConstants.Countries)
         
+        
+        self.startGenericLoading()
+        
     }
     
     override func style() {
@@ -108,6 +111,8 @@ extension AddArtistViewController : GenresViewModelDelegate {
         self.genrePicker.options = options;
         self.genrePicker.rootViewController = self;
         self.genrePicker.delegate = self;
+        
+        self.stopGenericLoading()
     }
     
     func genresErrorDidChange(_ viewModel: GenresViewModel) {
@@ -139,6 +144,8 @@ extension AddArtistViewController : ArtistsViewModelDelegate {
 extension AddArtistViewController : GenericTableViewModelDelegate {
     func genericTableOutputDidChange(_ viewModel: GenericTableViewModel) {
         self.countryPicker.options = viewModel.convertOptionsToPicker();
+        
+        self.stopGenericLoading()
     }
 }
 

@@ -30,6 +30,7 @@ class ConcertHistoryViewController : BaseViewController {
         self.concertViewModel.delegate = self;
         
         self.concertViewModel.getPastConcerts();
+        self.startGenericLoading();
         
         self.segmentedControl.selectedSegmentIndex = SegmentedOption.past.rawValue;
         self.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged);
@@ -75,6 +76,7 @@ class ConcertHistoryViewController : BaseViewController {
 extension ConcertHistoryViewController : ConcertViewModelDelegate {
     func concertsOutputDidChange(_ viewModel: ConcertViewModel) {
         self.tableView.reloadData();
+        self.stopGenericLoading()
     }
     
     func concertOutputDidChange(_ viewModel: ConcertViewModel) {

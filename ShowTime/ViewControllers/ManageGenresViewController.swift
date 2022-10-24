@@ -24,7 +24,7 @@ class ManageGenresViewController : BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
-        
+        self.startGenericLoading();
         self.genresViewModel.getGenres();
     }
     
@@ -84,6 +84,7 @@ extension ManageGenresViewController : UITableViewDelegate, UITableViewDataSourc
 extension ManageGenresViewController : GenresViewModelDelegate {
     func genresOutputDidChange(_ viewModel: GenresViewModel) {
         self.tableView.reloadData();
+        self.stopGenericLoading();
     }
     
     func genresErrorDidChange(_ viewModel: GenresViewModel) {

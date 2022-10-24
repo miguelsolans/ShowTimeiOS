@@ -32,6 +32,8 @@ class ManageArtistsViewController: BaseViewController {
         
         self.title = NSLocalizedString("manageArtists", comment: "Page Title")
         
+        self.startGenericLoading();
+        
     }
 
     
@@ -80,6 +82,8 @@ extension ManageArtistsViewController : GenresViewModelDelegate {
         self.pickerView.options = options;
         self.pickerView.rootViewController = self;
         self.pickerView.delegate = self;
+        
+        self.stopGenericLoading()
     }
     
     func genresErrorDidChange(_ viewModel: GenresViewModel) {
@@ -102,6 +106,7 @@ extension ManageArtistsViewController : ArtistsViewModelDelegate {
     
     func artistsOutputDidChange(_ viewModel: ArtistsViewModel) {
         self.tableView.reloadData();
+        self.stopGenericLoading()
     }
 }
 
@@ -109,6 +114,7 @@ extension ManageArtistsViewController : ArtistsViewModelDelegate {
 extension ManageArtistsViewController : DataPickerViewDelegate {
     func didSelectPicker(_ pickerView: DataPickerView, withOption option: DataPickerOption) {
         self.artistsViewModel.getArtistsByGenre(option.label);
+        self.startGenericLoading();
     }
 }
 
