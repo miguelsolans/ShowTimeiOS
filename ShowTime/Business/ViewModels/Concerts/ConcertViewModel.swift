@@ -89,7 +89,13 @@ class ConcertViewModel {
         
         let key = Array(concerts.keys.sorted())[ section ];
         
-        return key;
+        let date = key.convertToDate()
+        
+        guard let dateFormatted = date?.getFormattedDate() else { return "" }
+        
+        guard let concert = self.concertForSection(section, andIndex: 0) else { return dateFormatted }
+        
+        return String(format: "%@, %@", dateFormatted, concert.venueName);
     }
     
     /// Get information about a given concert in a given name
