@@ -60,6 +60,8 @@ class ConcertViewModel {
 
     }
     
+    /// Get number of dates
+    /// - Returns: Number of dates
     func numberOfConcerts() -> Int {
         
         guard let concerts = self.groupedByDate else { return 0 };
@@ -67,6 +69,9 @@ class ConcertViewModel {
         return concerts.keys.count;
     }
     
+    /// Get number of concerts per date in section
+    /// - Parameter section: section / date
+    /// - Returns: number of concerts in a given section / date
     func numberOfRowsForSection(_ section: Int) -> Int {
         
         guard let concerts = self.groupedByDate else { return 0 };
@@ -76,6 +81,9 @@ class ConcertViewModel {
         return concerts[ key ]?.count ?? 0;
     }
     
+    /// Concert date for a given section
+    /// - Parameter section: section
+    /// - Returns: Date under String
     func titleForSection(_ section: Int) -> String {
         guard let concerts = self.groupedByDate else { return "" }
         
@@ -84,6 +92,11 @@ class ConcertViewModel {
         return key;
     }
     
+    /// Get information about a given concert in a given name
+    /// - Parameters:
+    ///   - section: section
+    ///   - index: index in the section
+    /// - Returns: concert output
     func concertForSection(_ section: Int, andIndex index: Int)  -> ConcertOutput? {
         guard let concerts = self.groupedByDate else { return nil }
         
