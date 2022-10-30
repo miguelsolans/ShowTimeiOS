@@ -87,25 +87,29 @@ extension ConcertHistoryViewController : ConcertViewModelDelegate {
 
 extension ConcertHistoryViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        
+        return self.concertViewModel.numberOfConcerts();
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.concertViewModel.concertsOutput?.count ?? 0;
+        
+        
+        return self.concertViewModel.numberOfRowsForSection(section);
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return self.concertViewModel.titleForSection(section);
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell();
         
-        if let concerts = self.concertViewModel.concertsOutput {
-            
-            let concert = concerts[ indexPath.row ];
-            
+        if let concert = self.concertViewModel.concertForSection(indexPath.section, andIndex: indexPath.row) {
             cell.textLabel?.text = concert.artist.name;
-            
         }
-        
-        
         
         return cell;
     }
