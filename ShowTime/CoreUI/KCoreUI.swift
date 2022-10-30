@@ -13,6 +13,8 @@ struct KCoreUI {
     struct Colors {
         static let AnimatedPlaceholderTextColor = "AnimatedPlaceholderTextColor";
         static let PlaceholderTextColor = "PlaceholderTextColor";
+        static let ActiveMenuColor = "ActiveMenuColor";
+        static let InactiveMenuColor = "InactiveMenuColor";
     }
     
     struct Symbols {

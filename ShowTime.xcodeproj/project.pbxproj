@@ -59,7 +59,6 @@
 		8BC7E30D287CE5B2008CE4A8 /* ManageArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */; };
 		8BC7E312287CE5B5008CE4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */; };
 		8BEDF1A2290EFDB2007B12AA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */; };
-		8BEDF1A5290EFFCF007B12AA /* TwoLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A4290EFFCF007B12AA /* TwoLabelCell.xib */; };
 		8BEDF1A7290F0290007B12AA /* TwoLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,7 +119,6 @@
 		8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC7E316287CE5B5008CE4A8 /* InfoPROD.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoPROD.plist; sourceTree = "<group>"; };
 		8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		8BEDF1A4290EFFCF007B12AA /* TwoLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoLabelCell.xib; sourceTree = "<group>"; };
 		8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -408,7 +406,6 @@
 		8BEDF1A3290EFFA9007B12AA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8BEDF1A4290EFFCF007B12AA /* TwoLabelCell.xib */,
 				8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */,
 			);
 			path = Cells;
@@ -475,7 +472,6 @@
 				8BBFA1E128FC6ACB00F18E51 /* InfoDEV.plist in Resources */,
 				8BBFA1F728FCAEB600F18E51 /* InfoQA.plist in Resources */,
 				8BBFA1E028FC6AA600F18E51 /* InfoPROD.plist in Resources */,
-				8BEDF1A5290EFFCF007B12AA /* TwoLabelCell.xib in Resources */,
 				8BBFA1EC28FC715200F18E51 /* Localizable.strings in Resources */,
 				8BA2D4E828CD0C00007156EB /* AppColors.xcassets in Resources */,
 				8BBFA1F528FCAE9200F18E51 /* QA.xcconfig in Resources */,
