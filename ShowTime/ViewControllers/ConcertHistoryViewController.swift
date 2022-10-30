@@ -20,6 +20,8 @@ fileprivate enum SegmentedOption : Int, CaseIterable {
 
 class ConcertHistoryViewController : BaseViewController {
     
+    fileprivate let reusableIdentifier = "ConcertCell"
+    
     let concertViewModel = ConcertViewModel()
     let titleLabel = UILabel();
     let segmentedControl = UISegmentedControl(items: SegmentedOption.allCases.map { $0.description.capitalized })
@@ -27,16 +29,28 @@ class ConcertHistoryViewController : BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.concertViewModel.delegate = self;
         
-        self.concertViewModel.getPastConcerts();
+        self.setupTable();
+        
         self.startGenericLoading();
+        self.concertViewModel.delegate = self;
+        self.concertViewModel.getPastConcerts();
         
         self.segmentedControl.selectedSegmentIndex = SegmentedOption.past.rawValue;
         self.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged);
         self.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .touchUpInside);
         
         
+    }
+    
+    func setupTable() {
+        self.tableView.register(TwoLabelTableViewCell.self, forCellReuseIdentifier: "ConcertCell");
+        
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false;
+        self.tableView.rowHeight = 80;
+        
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
     }
     
     override func layout() {
@@ -65,10 +79,6 @@ class ConcertHistoryViewController : BaseViewController {
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addConcertButtonTapped));
         navigationItem.setRightBarButton(addButton, animated: true);
         
-        
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false;
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
     }
     
 }
@@ -87,25 +97,33 @@ extension ConcertHistoryViewController : ConcertViewModelDelegate {
 
 extension ConcertHistoryViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        
+        return self.concertViewModel.numberOfConcerts();
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.concertViewModel.concertsOutput?.count ?? 0;
+        
+        
+        return self.concertViewModel.numberOfRowsForSection(section);
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return self.concertViewModel.titleForSection(section);
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell();
         
-        if let concerts = self.concertViewModel.concertsOutput {
-            
-            let concert = concerts[ indexPath.row ];
-            
-            cell.textLabel?.text = concert.artist.name;
-            
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableIdentifier, for: indexPath) as? TwoLabelTableViewCell else { return UITableViewCell() }
+        
+        if let concert = self.concertViewModel.concertForSection(indexPath.section, andIndex: indexPath.row) {
+            cell.titleLabel.text = concert.artist.name;
+            cell.titleImageView.image = UIImage(systemName: "person.fill");
+            cell.subtitleLabel.text = concert.artist.genreName;
+            cell.subtitleImageView.image = UIImage(systemName: "music.note.list");
         }
-        
-        
         
         return cell;
     }

@@ -58,6 +58,8 @@
 		8BC7E30B287CE5B2008CE4A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30A287CE5B2008CE4A8 /* SceneDelegate.swift */; };
 		8BC7E30D287CE5B2008CE4A8 /* ManageArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */; };
 		8BC7E312287CE5B5008CE4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */; };
+		8BEDF1A2290EFDB2007B12AA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */; };
+		8BEDF1A7290F0290007B12AA /* TwoLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +118,8 @@
 		8BC7E30C287CE5B2008CE4A8 /* ManageArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageArtistsViewController.swift; sourceTree = "<group>"; };
 		8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BC7E316287CE5B5008CE4A8 /* InfoPROD.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoPROD.plist; sourceTree = "<group>"; };
+		8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,7 @@
 		8B207C1B287CEB8900689077 /* CoreUI */ = {
 			isa = PBXGroup;
 			children = (
+				8BEDF1A3290EFFA9007B12AA /* Cells */,
 				8B9CD63028A869A500F5F6E5 /* DatePicker */,
 				8B9CD62F28A8698400F5F6E5 /* TextField */,
 				8B207C1C287CEB9500689077 /* DataPicker */,
@@ -304,6 +309,7 @@
 				8BBFA1B628F233CD00F18E51 /* JSON.swift */,
 				8BBFA1C228F8B42900F18E51 /* ButtonExtension.swift */,
 				8BBFA1CB28FB7A5D00F18E51 /* Date.swift */,
+				8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +403,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		8BEDF1A3290EFFA9007B12AA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -486,12 +500,14 @@
 				8BBFA1A828F1E4D600F18E51 /* ConcertModel.swift in Sources */,
 				8BBFA1B728F233CD00F18E51 /* JSON.swift in Sources */,
 				8BBFA1A128F1E2B000F18E51 /* ConcertHistoryViewController.swift in Sources */,
+				8BEDF1A2290EFDB2007B12AA /* StringExtension.swift in Sources */,
 				8BBFA1D028FB82B800F18E51 /* VenueModel.swift in Sources */,
 				8BBFA1A428F1E30F00F18E51 /* BaseViewModel.swift in Sources */,
 				8BBFA1D428FB83A500F18E51 /* VenueViewModel.swift in Sources */,
 				8BBFA1B128F2119E00F18E51 /* MenuItems.swift in Sources */,
 				8B14F6EB2902086900224F91 /* KCoreUI.swift in Sources */,
 				8B0CDC2B287F7BE60042EA5B /* ArtistModel.swift in Sources */,
+				8BEDF1A7290F0290007B12AA /* TwoLabelTableViewCell.swift in Sources */,
 				8B207C12287CE75400689077 /* GenreOutput.swift in Sources */,
 				8BBFA1AB28F1E55900F18E51 /* ConcertOutput.swift in Sources */,
 				8BB8DF49287F310900435D58 /* DataPickerView.swift in Sources */,
