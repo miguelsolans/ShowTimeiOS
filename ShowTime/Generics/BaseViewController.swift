@@ -21,6 +21,10 @@ class BaseViewController: UIViewController {
         self.layout();
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+    }
+    
     func style() { }
     
     func layout() { }
