@@ -48,6 +48,7 @@ class ConcertHistoryViewController : BaseViewController {
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false;
         self.tableView.rowHeight = 80;
+        self.tableView.sectionHeaderHeight = 60;
         
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
@@ -96,6 +97,15 @@ extension ConcertHistoryViewController : ConcertViewModelDelegate {
 }
 
 extension ConcertHistoryViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = SimpleTableViewHeader(title: self.concertViewModel.titleForSection(section),
+                                           andSubtitle: self.concertViewModel.venueForSection(section));
+    
+        
+        return header;
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return self.concertViewModel.numberOfConcerts();
@@ -109,9 +119,9 @@ extension ConcertHistoryViewController : UITableViewDelegate, UITableViewDataSou
         
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return self.concertViewModel.titleForSection(section);
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true);
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

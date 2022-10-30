@@ -93,9 +93,17 @@ class ConcertViewModel {
         
         guard let dateFormatted = date?.getFormattedDate() else { return "" }
         
-        guard let concert = self.concertForSection(section, andIndex: 0) else { return dateFormatted }
+        return dateFormatted
+    }
+    
+    func venueForSection(_ section: Int) -> String {
+        guard let concerts = self.groupedByDate else { return "" }
         
-        return String(format: "%@, %@", dateFormatted, concert.venueName);
+        let key = Array(concerts.keys.sorted())[ section ];
+        
+        guard let concert = self.concertForSection(section, andIndex: 0) else { return "" }
+        
+        return concert.venueName
     }
     
     /// Get information about a given concert in a given name

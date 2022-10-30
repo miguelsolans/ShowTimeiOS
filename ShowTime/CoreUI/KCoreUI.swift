@@ -11,10 +11,14 @@ struct KCoreUI {
     
     // MARK: - Colors
     struct Colors {
+        // TextField
         static let AnimatedPlaceholderTextColor = "AnimatedPlaceholderTextColor";
         static let PlaceholderTextColor = "PlaceholderTextColor";
+        // Menus
         static let ActiveMenuColor = "ActiveMenuColor";
         static let InactiveMenuColor = "InactiveMenuColor";
+        // Simple Table Header
+        static let HeaderBackgroundColor = "HeaderBackgroundColor";
     }
     
     struct Symbols {

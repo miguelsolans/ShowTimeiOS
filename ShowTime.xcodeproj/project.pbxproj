@@ -22,6 +22,7 @@
 		8B207C17287CE81900689077 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C16287CE81900689077 /* GenreModel.swift */; };
 		8B207C1A287CE93B00689077 /* GenresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C19287CE93B00689077 /* GenresViewModel.swift */; };
 		8B207C1E287CEBB600689077 /* DataPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C1D287CEBB600689077 /* DataPickerViewController.swift */; };
+		8B4FC33C290F3E8300512D84 /* SimpleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FC33B290F3E8300512D84 /* SimpleTableViewHeader.swift */; };
 		8BA2D4E828CD0C00007156EB /* AppColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA2D4E728CD0C00007156EB /* AppColors.xcassets */; };
 		8BAD0B5128A86EFD00F7B8BA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD0B5028A86EFD00F7B8BA /* TabBarViewController.swift */; };
 		8BAD0B5328A8717B00F7B8BA /* ManageGenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD0B5228A8717B00F7B8BA /* ManageGenresViewController.swift */; };
@@ -78,6 +79,7 @@
 		8B207C16287CE81900689077 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
 		8B207C19287CE93B00689077 /* GenresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewModel.swift; sourceTree = "<group>"; };
 		8B207C1D287CEBB600689077 /* DataPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerViewController.swift; sourceTree = "<group>"; };
+		8B4FC33B290F3E8300512D84 /* SimpleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewHeader.swift; sourceTree = "<group>"; };
 		8BA2D4E728CD0C00007156EB /* AppColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppColors.xcassets; sourceTree = "<group>"; };
 		8BAD0B5028A86EFD00F7B8BA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8BAD0B5228A8717B00F7B8BA /* ManageGenresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageGenresViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				8B9CD62F28A8698400F5F6E5 /* TextField */,
 				8B207C1C287CEB9500689077 /* DataPicker */,
 				8B14F6EA2902086900224F91 /* KCoreUI.swift */,
+				8B4FC33B290F3E8300512D84 /* SimpleTableViewHeader.swift */,
 			);
 			path = CoreUI;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				8B14F6F12904230900224F91 /* GenericTableOutput.swift in Sources */,
 				8B207C15287CE7F600689077 /* BaseModel.swift in Sources */,
 				8B14F6EF290422FC00224F91 /* GenericTableModel.swift in Sources */,
+				8B4FC33C290F3E8300512D84 /* SimpleTableViewHeader.swift in Sources */,
 				8B0CDC29287F72820042EA5B /* BaseViewController.swift in Sources */,
 				8BBFA1CC28FB7A5D00F18E51 /* Date.swift in Sources */,
 				8B207C17287CE81900689077 /* GenreModel.swift in Sources */,
