@@ -23,10 +23,16 @@
 		8B207C1A287CE93B00689077 /* GenresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C19287CE93B00689077 /* GenresViewModel.swift */; };
 		8B207C1E287CEBB600689077 /* DataPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B207C1D287CEBB600689077 /* DataPickerViewController.swift */; };
 		8B4FC33C290F3E8300512D84 /* SimpleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FC33B290F3E8300512D84 /* SimpleTableViewHeader.swift */; };
+		8B87C3892911A43600EA2606 /* SearchArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87C3882911A43600EA2606 /* SearchArtistViewController.swift */; };
+		8B87C38B2911C4AD00EA2606 /* ImageWithTitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B87C38A2911C4AD00EA2606 /* ImageWithTitleViewCell.swift */; };
 		8BA2D4E828CD0C00007156EB /* AppColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA2D4E728CD0C00007156EB /* AppColors.xcassets */; };
 		8BAD0B5128A86EFD00F7B8BA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD0B5028A86EFD00F7B8BA /* TabBarViewController.swift */; };
 		8BAD0B5328A8717B00F7B8BA /* ManageGenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD0B5228A8717B00F7B8BA /* ManageGenresViewController.swift */; };
 		8BB8DF49287F310900435D58 /* DataPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB8DF48287F310900435D58 /* DataPickerView.swift */; };
+		8BBDF8142911CB4E000D9A00 /* ArtistSpotifySearchOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBDF8132911CB4E000D9A00 /* ArtistSpotifySearchOutput.swift */; };
+		8BBDF8162911CC76000D9A00 /* ArtistSpotifySearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBDF8152911CC76000D9A00 /* ArtistSpotifySearchModel.swift */; };
+		8BBDF8192911CCE5000D9A00 /* SpotifySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBDF8182911CCE5000D9A00 /* SpotifySearchViewModel.swift */; };
+		8BBDF84129146AC4000D9A00 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8BBDF84029146AC4000D9A00 /* SDWebImage */; };
 		8BBFA1A128F1E2B000F18E51 /* ConcertHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1A028F1E2B000F18E51 /* ConcertHistoryViewController.swift */; };
 		8BBFA1A428F1E30F00F18E51 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1A328F1E30F00F18E51 /* BaseViewModel.swift */; };
 		8BBFA1A628F1E46900F18E51 /* ConcertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFA1A528F1E46900F18E51 /* ConcertViewModel.swift */; };
@@ -80,10 +86,15 @@
 		8B207C19287CE93B00689077 /* GenresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewModel.swift; sourceTree = "<group>"; };
 		8B207C1D287CEBB600689077 /* DataPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerViewController.swift; sourceTree = "<group>"; };
 		8B4FC33B290F3E8300512D84 /* SimpleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewHeader.swift; sourceTree = "<group>"; };
+		8B87C3882911A43600EA2606 /* SearchArtistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistViewController.swift; sourceTree = "<group>"; };
+		8B87C38A2911C4AD00EA2606 /* ImageWithTitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithTitleViewCell.swift; sourceTree = "<group>"; };
 		8BA2D4E728CD0C00007156EB /* AppColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppColors.xcassets; sourceTree = "<group>"; };
 		8BAD0B5028A86EFD00F7B8BA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8BAD0B5228A8717B00F7B8BA /* ManageGenresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageGenresViewController.swift; sourceTree = "<group>"; };
 		8BB8DF48287F310900435D58 /* DataPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPickerView.swift; sourceTree = "<group>"; };
+		8BBDF8132911CB4E000D9A00 /* ArtistSpotifySearchOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSpotifySearchOutput.swift; sourceTree = "<group>"; };
+		8BBDF8152911CC76000D9A00 /* ArtistSpotifySearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSpotifySearchModel.swift; sourceTree = "<group>"; };
+		8BBDF8182911CCE5000D9A00 /* SpotifySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySearchViewModel.swift; sourceTree = "<group>"; };
 		8BBFA1A028F1E2B000F18E51 /* ConcertHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertHistoryViewController.swift; sourceTree = "<group>"; };
 		8BBFA1A328F1E30F00F18E51 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		8BBFA1A528F1E46900F18E51 /* ConcertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BBDF84129146AC4000D9A00 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +184,7 @@
 				8BBFA1AC28F1EC3F00F18E51 /* SettingsViewController.swift */,
 				8BBFA1BE28F36F6700F18E51 /* AddArtistViewController.swift */,
 				8BBFA1C728F8CB7600F18E51 /* AddConcertViewController.swift */,
+				8B87C3882911A43600EA2606 /* SearchArtistViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -179,6 +192,7 @@
 		8B207C0A287CE5FB00689077 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8BBDF8122911CB38000D9A00 /* Spotify */,
 				8B14F6ED290422EE00224F91 /* GenericTable */,
 				8BBFA1CD28FB829900F18E51 /* Venues */,
 				8BBFA1A928F1E4E300F18E51 /* Concert */,
@@ -278,6 +292,23 @@
 				8BBFA1C928FB05B000F18E51 /* DatePicker.swift */,
 			);
 			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		8BBDF8122911CB38000D9A00 /* Spotify */ = {
+			isa = PBXGroup;
+			children = (
+				8BBDF8132911CB4E000D9A00 /* ArtistSpotifySearchOutput.swift */,
+				8BBDF8152911CC76000D9A00 /* ArtistSpotifySearchModel.swift */,
+			);
+			path = Spotify;
+			sourceTree = "<group>";
+		};
+		8BBDF8172911CCD1000D9A00 /* Spotify */ = {
+			isa = PBXGroup;
+			children = (
+				8BBDF8182911CCE5000D9A00 /* SpotifySearchViewModel.swift */,
+			);
+			path = Spotify;
 			sourceTree = "<group>";
 		};
 		8BBFA1A228F1E2DA00F18E51 /* Concerts */ = {
@@ -397,6 +428,7 @@
 		8BC7E31C287CE5D0008CE4A8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8BBDF8172911CCD1000D9A00 /* Spotify */,
 				8B14F6EC290422DF00224F91 /* GenericTable */,
 				8BBFA1CE28FB82A900F18E51 /* Venues */,
 				8BBFA1A228F1E2DA00F18E51 /* Concerts */,
@@ -410,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */,
+				8B87C38A2911C4AD00EA2606 /* ImageWithTitleViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -430,6 +463,9 @@
 			dependencies = (
 			);
 			name = ShowTime;
+			packageProductDependencies = (
+				8BBDF84029146AC4000D9A00 /* SDWebImage */,
+			);
 			productName = ShowTime;
 			productReference = 8BC7E305287CE5B2008CE4A8 /* ShowTime DEV.app */;
 			productType = "com.apple.product-type.application";
@@ -458,6 +494,9 @@
 				"pt-PT",
 			);
 			mainGroup = 8BC7E2FC287CE5B2008CE4A8;
+			packageReferences = (
+				8BBDF83F29146AC4000D9A00 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 8BC7E306287CE5B2008CE4A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -496,6 +535,8 @@
 				8B207C15287CE7F600689077 /* BaseModel.swift in Sources */,
 				8B14F6EF290422FC00224F91 /* GenericTableModel.swift in Sources */,
 				8B4FC33C290F3E8300512D84 /* SimpleTableViewHeader.swift in Sources */,
+				8BBDF8192911CCE5000D9A00 /* SpotifySearchViewModel.swift in Sources */,
+				8B87C38B2911C4AD00EA2606 /* ImageWithTitleViewCell.swift in Sources */,
 				8B0CDC29287F72820042EA5B /* BaseViewController.swift in Sources */,
 				8BBFA1CC28FB7A5D00F18E51 /* Date.swift in Sources */,
 				8B207C17287CE81900689077 /* GenreModel.swift in Sources */,
@@ -512,7 +553,9 @@
 				8B14F6EB2902086900224F91 /* KCoreUI.swift in Sources */,
 				8B0CDC2B287F7BE60042EA5B /* ArtistModel.swift in Sources */,
 				8BEDF1A7290F0290007B12AA /* TwoLabelTableViewCell.swift in Sources */,
+				8BBDF8142911CB4E000D9A00 /* ArtistSpotifySearchOutput.swift in Sources */,
 				8B207C12287CE75400689077 /* GenreOutput.swift in Sources */,
+				8BBDF8162911CC76000D9A00 /* ArtistSpotifySearchModel.swift in Sources */,
 				8BBFA1AB28F1E55900F18E51 /* ConcertOutput.swift in Sources */,
 				8BB8DF49287F310900435D58 /* DataPickerView.swift in Sources */,
 				8B207C0F287CE6CD00689077 /* NetworkManager.swift in Sources */,
@@ -521,6 +564,7 @@
 				8BBFA1AD28F1EC3F00F18E51 /* SettingsViewController.swift in Sources */,
 				8B0CDC2E287F7DB00042EA5B /* ArtistOutput.swift in Sources */,
 				8BC7E30D287CE5B2008CE4A8 /* ManageArtistsViewController.swift in Sources */,
+				8B87C3892911A43600EA2606 /* SearchArtistViewController.swift in Sources */,
 				8BBFA1BF28F36F6700F18E51 /* AddArtistViewController.swift in Sources */,
 				8BBFA1C328F8B42900F18E51 /* ButtonExtension.swift in Sources */,
 				8BBFA1C628F8B58700F18E51 /* TextField.swift in Sources */,
@@ -842,6 +886,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BBDF83F29146AC4000D9A00 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BBDF84029146AC4000D9A00 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BBDF83F29146AC4000D9A00 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8BC7E2FD287CE5B2008CE4A8 /* Project object */;
 }

@@ -99,8 +99,6 @@ class ConcertViewModel {
     func venueForSection(_ section: Int) -> String {
         guard let concerts = self.groupedByDate else { return "" }
         
-        let key = Array(concerts.keys.sorted())[ section ];
-        
         guard let concert = self.concertForSection(section, andIndex: 0) else { return "" }
         
         return concert.venueName

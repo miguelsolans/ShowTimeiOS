@@ -25,6 +25,7 @@ class TabBarViewController: UITabBarController {
         viewControllers = [
             createNavController(for: ManageArtistsViewController(), title: NSLocalizedString("artists", comment: ""), image: UIImage(systemName: "house")!),
             createNavController(for: ConcertHistoryViewController(), title: NSLocalizedString("concerts", comment: ""), image: UIImage(systemName: "guitars")!),
+            createNavController(for: SearchArtistViewController(), title: NSLocalizedString("search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
             createNavController(for: SettingsViewController(), title: NSLocalizedString("settings", comment: ""), image: UIImage(systemName: "gear")!)
         ];
     }
