@@ -22,8 +22,8 @@ class AddConcertViewController : BaseViewController {
     
     override func viewDidLoad() {
         self.datePickerView.initPicker(withLabel: NSLocalizedString("concertDate", comment: "Picker Placeholder"));
-        self.artistPickerView = DataPickerView(target: self, placeholder: "Artist", withSearchBar: true);
-        self.venuePickerView = DataPickerView(target: self, placeholder: "Venue", withSearchBar: true);
+        self.artistPickerView = DataPickerView(target: self, placeholder: "Artist",  andType: .stringWithSearch);
+        self.venuePickerView = DataPickerView(target: self, placeholder: "Venue", andType: .stringWithSearch);
         
         super.viewDidLoad();
         

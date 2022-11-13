@@ -11,6 +11,12 @@ protocol DataPickerViewControllerDelegate : AnyObject {
     func didSelectOption(_ option: DataPickerOption);
 }
 
+enum DataPickerType {
+    case spotify
+    case string
+    case stringWithSearch
+}
+
 class DataPickerViewController: UIViewController {
     
     weak var delegate: DataPickerViewControllerDelegate?
@@ -20,11 +26,11 @@ class DataPickerViewController: UIViewController {
     fileprivate let searchBar = UISearchBar();
     
     let options: [DataPickerOption];
-    let pickerWithSearch : Bool;
+    let pickerType : DataPickerType;
     fileprivate var searchResults = [DataPickerOption]();
     
-    init(options: [DataPickerOption], andSearch search: Bool) {
-        self.pickerWithSearch = search;
+    init(options: [DataPickerOption], andType type: DataPickerType) {
+        self.pickerType = type;
         self.options = options
         super.init(nibName: nil, bundle: nil);
     }
@@ -51,7 +57,7 @@ class DataPickerViewController: UIViewController {
     func layout() {
         
         self.view.addSubview(self.tableView);
-        if(self.pickerWithSearch) {
+        if(self.pickerType == .stringWithSearch) {
             self.view.addSubview(self.searchBar);
             
             NSLayoutConstraint.activate([
@@ -62,7 +68,7 @@ class DataPickerViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.pickerWithSearch ? self.searchBar.bottomAnchor : self.view.topAnchor),
+            self.tableView.topAnchor.constraint(equalTo: self.pickerType == .stringWithSearch ? self.searchBar.bottomAnchor : self.view.topAnchor),
             self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)

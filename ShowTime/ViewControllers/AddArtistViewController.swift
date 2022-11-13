@@ -16,6 +16,7 @@ class AddArtistViewController : BaseViewController {
     
     var genrePicker: DataPickerView!
     var countryPicker: DataPickerView!
+    var spotifyPicker: DataPickerView!;
     
     let artistTextField = TextField(placeholder: "Artist Name");
     let saveButton = UIButton(type: .system);
@@ -38,10 +39,10 @@ class AddArtistViewController : BaseViewController {
     override func style() {
         self.title = NSLocalizedString("newArtist", comment: "Page title")
         
-        self.genrePicker = DataPickerView(target: self, placeholder: "Genre", withSearchBar: true)
+        self.genrePicker = DataPickerView(target: self, placeholder: "Genre", andType: .stringWithSearch)
         self.genrePicker.translatesAutoresizingMaskIntoConstraints = false;
         
-        self.countryPicker = DataPickerView(target: self, placeholder: "Countries", withSearchBar: true);
+        self.countryPicker = DataPickerView(target: self, placeholder: "Countries", andType: .stringWithSearch);
         self.countryPicker.translatesAutoresizingMaskIntoConstraints = false;
         
         self.artistTextField.translatesAutoresizingMaskIntoConstraints = false;
