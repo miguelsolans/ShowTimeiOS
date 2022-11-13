@@ -11,12 +11,6 @@ protocol DataPickerViewControllerDelegate : AnyObject {
     func didSelectOption(_ option: DataPickerOption);
 }
 
-enum DataPickerType {
-    case spotify
-    case string
-    case stringWithSearch
-}
-
 class DataPickerViewController: UIViewController {
     
     weak var delegate: DataPickerViewControllerDelegate?

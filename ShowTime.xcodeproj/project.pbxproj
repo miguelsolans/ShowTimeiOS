@@ -67,6 +67,7 @@
 		8BC7E312287CE5B5008CE4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BC7E311287CE5B5008CE4A8 /* Assets.xcassets */; };
 		8BEDF1A2290EFDB2007B12AA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */; };
 		8BEDF1A7290F0290007B12AA /* TwoLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */; };
+		8BFBCF1F292192AE008FDF6D /* EnumCoreUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFBCF1E292192AE008FDF6D /* EnumCoreUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		8BC7E316287CE5B5008CE4A8 /* InfoPROD.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoPROD.plist; sourceTree = "<group>"; };
 		8BEDF1A1290EFDB2007B12AA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8BEDF1A6290F0290007B12AA /* TwoLabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoLabelTableViewCell.swift; sourceTree = "<group>"; };
+		8BFBCF1E292192AE008FDF6D /* EnumCoreUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCoreUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 				8B207C1C287CEB9500689077 /* DataPicker */,
 				8B14F6EA2902086900224F91 /* KCoreUI.swift */,
 				8B4FC33B290F3E8300512D84 /* SimpleTableViewHeader.swift */,
+				8BFBCF1E292192AE008FDF6D /* EnumCoreUI.swift */,
 			);
 			path = CoreUI;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				8BBFA1D228FB82C000F18E51 /* VenueOutput.swift in Sources */,
 				8B0CDC30287F7F2E0042EA5B /* ArtistsViewModel.swift in Sources */,
 				8BBFA1D628FC2F3A00F18E51 /* ConcertInput.swift in Sources */,
+				8BFBCF1F292192AE008FDF6D /* EnumCoreUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
